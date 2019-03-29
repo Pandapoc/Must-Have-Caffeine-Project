@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+</head>
+
+<body>
+
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+  <nav>
+    <!-- Nav Bar -->
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="../View1/homepage1.html">Home</a></li>
+        <li><a href="../View2/recipes.html">Recipes</a></li>
+        <li><a href="../View3/items.html">Items</a></li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i
+              class="material-icons right"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- introduction about the app-->
+  <p>Introduction:
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis odio ex commodi consectetur tempore eius
+    sapiente praesentium nostrum veritatis ea ullam, quo beatae maxime aliquid quam quos provident sequi
+    cupiditate.Nobis neque illo dolor? Accusamus ut labore hic? Adipisci repellat dolor eligendi quis voluptas
+    dignissimos quos sit aliquam unde labore praesentium nobis atque, quae inventore error, libero iusto consequuntur
+    corrupti!</p>
+  <!-- button for either Receipt or items -->
+  <button id="reciPage">Recipes</button>
+  <button id="itemPage">Items</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="../JS/things.js"></script>
+</body>
+
+</html>
