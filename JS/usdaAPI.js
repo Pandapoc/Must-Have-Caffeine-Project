@@ -1,26 +1,34 @@
 let apiUSDA = 'IIT5HHAkRjEtkiOxRLwoPmagdVBOWMfmfba7JXHu'
-let searchItem = 'coffee'
 let standard = 'Standard Reference'
 let branded = 'Branded Food Products'
+let searchItem
 let database
 
-document.addEventListener('click', e => {
-  console.log(e)
-  if (e.id === 'standard') {
-  }
+document.querySelector('#searchBtn').addEventListener('click', e => {
+  e.preventDefault()
+  databaseSelect()
 })
-// document.querySelector('#standard').checked
 
 const databaseSelect = _ => {
-  var radioBtns = document.getElementsByName('itemType')
-  for (var i = 0; i < radioBtns.length; i++) {
-    if (radioBtns[i].checked) {
-      console.log(radioBtns[i].dataset-database)
-    }
+  let standardRdo = document.querySelector('#standard')
+  let brandedRdo = document.querySelector('#branded')
+
+  if (standardRdo.checked) {
+    database = standard
+    console.log(database)
+    searchItems()
+  } else if (brandedRdo.checked) {
+    database = branded
+    console.log(database)
+    searchItems()
+  } else if (standardRdo.checked === false && brandedRdo.checked === false) {
+    console.log('no can do')
   }
 }
 
 const searchItems = _ => {
+  searchItem = document.querySelector('#searchItem').value
+
   fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=25&offset=0&api_key=${apiUSDA}`)
     .then(r => r.json())
     .then(r => {
