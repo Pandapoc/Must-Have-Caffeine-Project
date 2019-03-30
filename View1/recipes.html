@@ -4,40 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-     <!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">one</a></li>
-        <li><a href="#!">two</a></li>
+<!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="homepage1.html">Home</a></li>
+        <li><a href="recipes.html">Recipes</a></li>
         <li class="divider"></li>
-        <li><a href="#!">three</a></li>
-      </ul>
-      <nav>
-        <!-- Nav Bar -->
+        <li><a href="items.html">Items</a></li>
+    </ul>
+    
+<!-- Nav Bar -->
+    <nav>        
         <div class="nav-wrapper">
           <a href="#!" class="brand-logo">Logo</a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="./homepage1.html">Home</a></li>
-            <li><a href="./recipes.html">Recipes</a></li>
-            <li><a href="./items.html">Items</a></li>
-            <!-- Dropdown Trigger -->
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right"></i></a></li>
+            <li><a href="homepage1.html">Home</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="items.html">Items</a></li>
+<!-- Dropdown Trigger -->
+            <li>
+                <a class="dropdown-trigger" href="#!" data-target="dropdown1">
+                    Dropdown<i class="material-icons right">arrow_drop_down</i>
+                </a>
+             </li> 
           </ul>
         </div>
-      </nav>
-      <!-- search Bar -->
-      <form>
-            <label for="Recipes">Food Recipes:</label>
-            <input type="text" name="Recipes" id="Recipes">
-            <button onclick="searchRecipes()">Search</button>
-        </form>
-    <!-- search Result -->
+    </nav>
+
+<!-- search Bar -->
+    <form>
+        <label for="Recipes">Food Recipes:</label>
+        <input type="text" name="Recipes" id="Recipes">
+        <button onclick="searchRecipes()">Search</button>
+    </form>
+
+<!-- search Result -->
     <div id="youtubeAPI">Here we put youtube</div>
     
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(() => {
+          $(".dropdown-trigger").dropdown();
+        })
+    </script>
 </body>
 </html>
