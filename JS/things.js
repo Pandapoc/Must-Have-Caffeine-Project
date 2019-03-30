@@ -7,3 +7,5 @@ fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=butter&sort=n&max=25&o
   .then(r => {
     console.log(r.list.item)
   })
+
+  stuff and things
