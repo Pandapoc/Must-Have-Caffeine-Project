@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Document</title>
+</head>
+<body>
+     <!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
+      </ul>
+      <nav>
+        <!-- Nav Bar -->
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">Logo</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="./homepage1.html">Home</a></li>
+            <li><a href="./recipes.html">Recipes</a></li>
+            <li><a href="./items.html">Items</a></li>
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right"></i></a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- search Bar -->
+      <form>
+            <label for="Recipes">Food Recipes:</label>
+            <input type="text" name="Recipes" id="Recipes">
+            <button id="searchRecipes">Search</button>
+        </form>
+    <!-- search Result -->
+    <div id="youtubeAPI">Here we put youtube</div>
+    <div id="ytplayer"></div>
+
+<script>
+  // Load the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  
+   tag.src = "https://www.youtube.com/player_api"
+
+  //tag.src = 
+
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // Replace the 'ytplayer' element with an <iframe> and
+  // YouTube player after the API code downloads.
+  var player;
+  function onYouTubePlayerAPIReady() {
+    console.log('yt-player')
+    player = new YT.Player('ytplayer', {
+      height: '360',
+      width: '640',
+      videoId: 'M7lc1UVf-VE'
+    });
+  }
+
+  
+</script>
+
+<script src="../JS/youtube.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
