@@ -3,62 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/resets.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../Css/style.css">
+
     <title>Document</title>
 </head>
 <body>
-    
-<!-- Dropdown Structure -->
-      <ul id="dropdown1" class="dropdown-content">
-          <li><a href="homepage1.html">Home</a></li>
-          <li><a href="recipes.html">Recipes</a></li>
-          <li class="divider"></li>
-          <li><a href="items.html">Items</a></li>
-      </ul>
-<!-- Nav Bar -->
-      <nav>      
-          <div class="nav-wrapper">
-              <a href="#!" class="brand-logo">Logo</a>
-              <ul class="right hide-on-med-and-down">
+<!--New Navbar!!!!!!!!!!!!!!-->
+<div class="navbar-fixed">
+        <nav class="teal">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">Logo</a>
+                    <a href="#" data-target="mobile-nav" 
+                        class="sidenav-trigger">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="homepage1.html">Home</a></li>
+                        <li><a href="recipes.html">Recipes</a></li>
+                        <li><a href="items.html">Items</a></li>
+                        <li><a href="#">Search</a></li>
+                    </ul>
+                </div>
+            </div>           
+        </nav>
+        <ul class="sidenav" id="mobile-nav">
                 <li><a href="homepage1.html">Home</a></li>
                 <li><a href="recipes.html">Recipes</a></li>
                 <li><a href="items.html">Items</a></li>
-                <!-- Dropdown Trigger -->
-                <li>
-                    <a class="dropdown-trigger" href="#!" data-target="dropdown1">
-                        Dropdown<i class="material-icons right">arrow_drop_down</i>
-                    </a>
-                </li> 
-              </ul>
-          </div>
-      </nav>
+                <li><a href="#">Search</a></li>
+        </ul>
 
-      <form>
-          <label for="Items">Items nutritionFacts:</label>
-          <input type="text" name="Items" id="Items">
-          <button onclick="searchItems()">Search</button>
-      </form>
+<!--section slider-->
+</div>
+
+<br>
+<br>
+<br>
+<form>
+    <label for="Items">Items nutritionFacts:</label>
+    <input type="text" name="Items" id="Items">
+    <button onclick="searchItems()">Search</button>
+</form>
 
 <!-- search Result -->
-      <div id='nutritionFacts'>
-        <h4>Nutrition Facts</h4>     
-      </div>
-      <div id='ingredientList'>
-        <h4>Ingredient List</h4>
-      </div>
-    
+<div id='nutritionFacts'>
+    <h4>Nutrition Facts</h4>     
+</div>
+<div id='ingredientList'>
+    <h4>Ingredient List</h4>
+</div>
+  
 <!-- giphy goes here -->
-      <div id="gifDiv">Food Giphy/Food facts</div>
+<div id="gifDiv">Food Giphy/Food facts</div>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      <script src="../JS/things.js"></script>
-<!-- enable dropdown functionality -->
-      <script>
-        $( document ).ready(() => {
-            $(".dropdown-trigger").dropdown();
-        })
-      </script>
+
+
+
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="../JS/things.js"></script>
+
+    <script>
+        // sidenav
+        const sideNav = document.querySelector('.sidenav');
+        M.Sidenav.init(sideNav, {});
+    </script>
+    
+
+      
+     
+
 </body>
 </html>
