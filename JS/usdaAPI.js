@@ -38,15 +38,33 @@ const databaseSelect = _ => {
   }
 }
 
+// const ingredientNutrients = (NDBno) {
+//   // do something
+// }
+
 const searchItems = _ => {
   searchItem = document.querySelector('#searchItem').value
+  document.querySelector('#ingredients').innerHTML = ''
 
   fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=10&offset=${offset}&api_key=${apiUSDA}`)
     .then(r => r.json())
     .then(r => {
       let itemList = r.list.item
-      console.log(itemList)
+      // console.log(searchItem)
+      // console.log(database)
+      // console.log(offset)
+      itemList.forEach(item => {
+        console.log(item)
+        let NDBno = item.ndbno
+        let ingredientName = item.name
+        console.log(NDBno)
 
+        let ingredient = document.createElement('div')
+        ingredient.innerHTML = `
+        <a href="javascript:ingredientNutrients(${NDBno})">${ingredientName}</a>
+        `
+        document.querySelector('#ingredients').append(ingredient)
+      })
     })
 
 
