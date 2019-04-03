@@ -1,48 +1,52 @@
 let apiUSDA = 'IIT5HHAkRjEtkiOxRLwoPmagdVBOWMfmfba7JXHu'
 let standard = 'Standard Reference'
+let standardButton = document.querySelector('#standard')
 let branded = 'Branded Food Products'
+let brandedButton = document.querySelector('#branded')
 let searchItem
 let database
+let offset = 0
 
 document.querySelector('#searchBtn').addEventListener('click', e => {
   e.preventDefault()
-  if (document.querySelector('#searchItem').value === '') {
-    document.querySelector('#blankSearch').style.display = 'block'
+  if (standardButton.checked === false && brandedButton.checked === false) {
+    document.querySelector('#uncheckedBox').style.visibility = 'visible'
+  } else if (document.querySelector('#searchItem').value === '') {
+    console.log('test')
+    document.querySelector('#blankSearch').style.display = 'inline'
+    document.querySelector('#uncheckedBox').style.visibility = 'hidden'
   } else {
     databaseSelect()
+    buttonUnselect()
+    document.querySelector('#blankSearch').style.display = 'none'
+    document.querySelector('#searchItem').value = ''
   }
-  buttonUnselect()
-  document.querySelector('#searchItem').value = ''
 })
 
 const buttonUnselect = _ => {
-  document.getElementById('standard').checked = false
-  document.getElementById('branded').checked = false
+  standardButton.checked = false
+  brandedButton.checked = false
 }
 
 const databaseSelect = _ => {
-  let standardRdo = document.querySelector('#standard')
-  let brandedRdo = document.querySelector('#branded')
-  if (standardRdo.checked) {
+  if (standardButton.checked) {
     database = standard
-    console.log(database)
     searchItems()
-  } else if (brandedRdo.checked) {
+  } else if (brandedButton.checked) {
     database = branded
-    console.log(database)
     searchItems()
-  } else if (standardRdo.checked === false && brandedRdo.checked === false) {
-    console.log('no can do')
   }
 }
 
 const searchItems = _ => {
   searchItem = document.querySelector('#searchItem').value
 
-  fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=25&offset=0&api_key=${apiUSDA}`)
+  fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=10&offset=${offset}&api_key=${apiUSDA}`)
     .then(r => r.json())
     .then(r => {
-      console.log(r.list)
+      let itemList = r.list.item
+      console.log(itemList)
+
     })
 
 
