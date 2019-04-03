@@ -7,12 +7,18 @@ let database
 document.querySelector('#searchBtn').addEventListener('click', e => {
   e.preventDefault()
   databaseSelect()
+  buttonUnselect()
+  document.querySelector('#searchItem').value = ''
 })
+
+const buttonUnselect = _ => {
+  document.getElementById('#standard').checked = false
+  document.getElementById('#branded').checked = false
+}
 
 const databaseSelect = _ => {
   let standardRdo = document.querySelector('#standard')
   let brandedRdo = document.querySelector('#branded')
-
   if (standardRdo.checked) {
     database = standard
     console.log(database)
@@ -34,4 +40,6 @@ const searchItems = _ => {
     .then(r => {
       console.log(r.list)
     })
+
+
 }
