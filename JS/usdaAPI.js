@@ -6,14 +6,18 @@ let database
 
 document.querySelector('#searchBtn').addEventListener('click', e => {
   e.preventDefault()
-  databaseSelect()
+  if (document.querySelector('#searchItem').value === '') {
+    document.querySelector('#blankSearch').style.display = 'block'
+  } else {
+    databaseSelect()
+  }
   buttonUnselect()
   document.querySelector('#searchItem').value = ''
 })
 
 const buttonUnselect = _ => {
-  document.getElementById('#standard').checked = false
-  document.getElementById('#branded').checked = false
+  document.getElementById('standard').checked = false
+  document.getElementById('branded').checked = false
 }
 
 const databaseSelect = _ => {
