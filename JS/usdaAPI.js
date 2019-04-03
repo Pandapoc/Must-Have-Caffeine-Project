@@ -38,18 +38,22 @@ const databaseSelect = _ => {
   }
 }
 
-const ingredientNutrients = (NDBno) => {
+const nutritionTable = r => {
+  console.log(r.report.food)
+}
+
+const ingredientNutrients = NDBno => {
   document.querySelector('#ingredients').innerHTML = ''
   fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}`)
     .then(r => r.json())
     .then(r => {
-      console.log(r.report.food.name)
-      console.log(r.report.food)
+      // console.log(r.report.food)
       if (r.report.food.cn === '') {
         console.log(`${r.report.food.name} name`)
       } else {
         console.log(`${r.report.food.cn} cn`)
       }
+      nutritionTable(r)
     })
 }
 
