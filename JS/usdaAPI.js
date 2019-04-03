@@ -38,9 +38,20 @@ const databaseSelect = _ => {
   }
 }
 
-// const ingredientNutrients = (NDBno) {
-//   // do something
-// }
+const ingredientNutrients = (NDBno) => {
+  document.querySelector('#ingredients').innerHTML = ''
+  fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}`)
+    .then(r => r.json())
+    .then(r => {
+      console.log(r.report.food.name)
+      console.log(r.report.food)
+      if (r.report.food.cn === '') {
+        console.log(`${r.report.food.name} name`)
+      } else {
+        console.log(`${r.report.food.cn} cn`)
+      }
+    })
+}
 
 const searchItems = _ => {
   searchItem = document.querySelector('#searchItem').value
@@ -49,16 +60,9 @@ const searchItems = _ => {
   fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=10&offset=${offset}&api_key=${apiUSDA}`)
     .then(r => r.json())
     .then(r => {
-      let itemList = r.list.item
-      // console.log(searchItem)
-      // console.log(database)
-      // console.log(offset)
-      itemList.forEach(item => {
-        console.log(item)
+      r.list.item.forEach(item => {
         let NDBno = item.ndbno
         let ingredientName = item.name
-        console.log(NDBno)
-
         let ingredient = document.createElement('div')
         ingredient.innerHTML = `
         <a href="javascript:ingredientNutrients(${NDBno})">${ingredientName}</a>
