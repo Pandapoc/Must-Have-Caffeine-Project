@@ -12,7 +12,6 @@ document.querySelector('#searchBtn').addEventListener('click', e => {
   if (standardButton.checked === false && brandedButton.checked === false) {
     document.querySelector('#uncheckedBox').style.visibility = 'visible'
   } else if (document.querySelector('#searchItem').value === '') {
-    console.log('test')
     document.querySelector('#blankSearch').style.display = 'inline'
     document.querySelector('#uncheckedBox').style.visibility = 'hidden'
   } else {
@@ -40,6 +39,7 @@ const databaseSelect = _ => {
 
 const nutritionTable = r => {
   console.log(r.report.food)
+  // nutrients: serving size, calories, calories from fat, total fat, saturated fat, trans fat, cholesterol, sodium, total carbs, fiber, sugar, protein
 }
 
 const ingredientNutrients = NDBno => {
