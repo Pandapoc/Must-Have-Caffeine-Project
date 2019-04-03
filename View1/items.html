@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/resets.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../Css/style.css">
+    <link rel="stylesheet" href="../styleSPF.css">
 
     <title>Document</title>
+
 </head>
+
 <body>
+
 <!--New Navbar!!!!!!!!!!!!!!-->
 <div class="navbar-fixed">
         <nav class="teal">
@@ -37,46 +44,90 @@
                 <li><a href="#">Search</a></li>
         </ul>
 
-<!--section slider-->
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12 xl12">
+        <h6>Search for the nutritional information on almost any item. Search for basic items (e.g. banana, chicken,
+          eggs) or branded items (e.g. Starbucks coffee, Heinz ketchup, Chobani yogurt).</h6>
+      </div>
+    </div>
 
-<br>
-<br>
-<br>
-<form>
-    <label for="Items">Items nutritionFacts:</label>
-    <input type="text" name="Items" id="Items">
-    <button onclick="searchItems()">Search</button>
-</form>
+    <div class="row">
+      <div class="col s12 m12 l 12 xl12">
+        <form>
+          <p>
+            <label>
+              <input name="itemType" type="radio" class="itemType" value="standard" id="standard">
+              <span>Non-branded Item</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="itemType" type="radio" class="itemType" value="branded" id="branded">
+              <span>Branded Item</span>
+            </label>
+          </p>
+        </form>
+        <div id="uncheckedBox"> You must choose a database to search. Please choose on of the above options.</div>
+      </div>
+    </div>
 
-<!-- search Result -->
-<div id='nutritionFacts'>
-    <h4>Nutrition Facts</h4>     
-</div>
-<div id='ingredientList'>
-    <h4>Ingredient List</h4>
-</div>
+    <div class="row">
+      <div class="col s12 m12 l12 xl12">
+        <form>
+          <input type="text" name="Items" id="searchItem">
+          <button id="searchBtn">Search</button>
+          <div id="blankSearch">You can't search for nothing. Please enter a search term.</div>
+        </form>
+      </div>
+    </div>
+
+    <div id="foodOptions">
+      <div class="align-center"><h5>Food Options</h5></div>
+      <div id="ingredients">
+        this is where the ingredients should end up
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="col s12 m12 l12 xl12">
+        <div id='ingredientList'>
+          <h4>Ingredient List</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m12 l12 xl12">
+        <div id='nutritionFacts'>
+          <h4>Nutrition Facts</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m12 l12 xl12">
+    <div id="gifDiv">Food Giphy/Food facts</div>
+  </div>
+  </div> 
+
+  </div>
+
   
-<!-- giphy goes here -->
-<div id="gifDiv">Food Giphy/Food facts</div>
+  <script src="../JS/usdaAPI.js"></script>
 
 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="../JS/things.js"></script>
+<!-- enable dropdown functionality -->
+      <script>
+        $( document ).ready(() => {
+            $(".dropdown-trigger").dropdown();
+        })
+      </script>
 
-
-
-   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="../JS/things.js"></script>
-
-    <script>
-        // sidenav
-        const sideNav = document.querySelector('.sidenav');
-        M.Sidenav.init(sideNav, {});
-    </script>
-    
-
-      
-     
 
 </body>
+
 </html>
