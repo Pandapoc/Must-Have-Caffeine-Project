@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +11,16 @@
 
     <title>Document</title>
 </head>
+
 <body>
 
-<!--New Navbar!!!!!!!!!!!!!!-->
-<div class="navbar-fixed">
+    <!--New Navbar!!!!!!!!!!!!!!-->
+    <div class="navbar-fixed">
         <nav class="teal">
             <div class="container">
                 <div class="nav-wrapper">
                     <a href="#" class="brand-logo">Logo</a>
-                    <a href="#" data-target="mobile-nav" 
-                        class="sidenav-trigger">
+                    <a href="#" data-target="mobile-nav" class="sidenav-trigger">
                         <i class="material-icons">menu</i>
                     </a>
                     <ul class="right hide-on-med-and-down">
@@ -29,39 +30,40 @@
                         <li><a href="#">Search</a></li>
                     </ul>
                 </div>
-            </div>           
+            </div>
         </nav>
         <ul class="sidenav" id="mobile-nav">
-                <li><a href="homepage1.html">Home</a></li>
-                <li><a href="recipes.html">Recipes</a></li>
-                <li><a href="items.html">Items</a></li>
-                <li><a href="#">Search</a></li>
+            <li><a href="homepage1.html">Home</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="items.html">Items</a></li>
+            <li><a href="#">Search</a></li>
         </ul>
+    </div>
 
 
-      <!-- search Bar -->
-      <form>
-            <label for="Recipes">Food Recipes:</label>
-            <input type="text" name="Recipes" id="Recipes">
+    <!-- search Bar -->
+    <form>
+        <label for="Recipes">Food Recipes:</label>
+        <input type="text" name="Recipes" id="Recipes">
 
-            
 
-            <button id='search'>Search</button>
 
-        </form>
+        <button id='search'>Search</button>
+
+    </form>
     <!-- search Result -->
-    
+
 
     <div id="recipeLink"></div>
-    
+
     <div id="youtubeAPI">Here we put youtube</div>
     <div id="ytplayer"></div>
 
-    
 
 
 
-    
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -76,33 +78,34 @@
         M.Sidenav.init(sideNav, {});
     </script>
 
-  <script>
-  // Load the IFrame Player API code asynchronously.
-  var tag = document.createElement('script');
-  
-   tag.src = "https://www.youtube.com/player_api"
+    <script>
+        // Load the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
 
-  //tag.src = 
+        tag.src = "https://www.youtube.com/player_api"
 
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        //tag.src = 
 
-  // Replace the 'ytplayer' element with an <iframe> and
-  // YouTube player after the API code downloads.
-  var player;
-  function onYouTubePlayerAPIReady() {
-    console.log('yt-player')
-    player = new YT.Player('ytplayer', {
-      height: '360',
-      width: '640',
-      videoId: 'M7lc1UVf-VE'
-    });
-  }
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  
-</script>
+        // Replace the 'ytplayer' element with an <iframe> and
+        // YouTube player after the API code downloads.
+        var player;
+        function onYouTubePlayerAPIReady() {
+            console.log('yt-player')
+            player = new YT.Player('ytplayer', {
+                height: '360',
+                width: '640',
+                videoId: 'M7lc1UVf-VE'
+            });
+        }
 
-<script src="../JS/youtube.js"></script>
+
+    </script>
+
+    <script src="../JS/youtube.js"></script>
 
 </body>
+
 </html>
