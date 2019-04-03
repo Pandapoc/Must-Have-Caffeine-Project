@@ -1,0 +1,9 @@
+li {
+    opacity: 1 !important;
+}
+
+/* change to make hamburger bar clickable*/
+.sidenav-overlay{
+    z-index: 800 !important;
+}
+

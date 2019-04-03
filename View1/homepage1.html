@@ -40,10 +40,31 @@
                 <li><a href="items.html">Items</a></li>
                 <li><a href="#">Search</a></li>
         </ul>
-
-<!--section slider-->
+        <!--new added-->
     </div>
 
+<!--section slider-->
+<main>
+
+<div class="carousel">
+    <a class="carousel-item" href="#one!">
+        <img src="../Css/image/food1.jpg">
+    </a>
+    <a class="carousel-item" href="#two!">
+        <img src="../Css/image/food2.jpg">
+    </a>
+    <a class="carousel-item" href="#three!">
+        <img src="../Css/image/food3.jpg">
+    </a>
+    <a class="carousel-item" href="#four!">
+        <img src="../Css/image/food4.jpg">
+    </a>
+    <a class="carousel-item" href="#five!">
+        <img src="../Css/image/food5.jpg">
+    </a>
+</div>  
+
+<br>
 <br>
 <br>
 
@@ -67,13 +88,9 @@
     <button id="itemPage">Items</button>
 </div>
 
+</main>
 
-
-
-
-
-
-   
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="../JS/things.js"></script>
 
@@ -81,6 +98,14 @@
         // sidenav
         const sideNav = document.querySelector('.sidenav');
         M.Sidenav.init(sideNav, {});
+
+    // sliders
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems);
+  });
+
+
     </script>
 
 
