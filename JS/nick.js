@@ -6,50 +6,61 @@ let recElem
 let vidId = []
 let title = []
 let url = []
-let recipes = []
 let i = 0
 
 
+function sleep_ms(millisecs) {
+    var initiation = new Date().getTime();
+    while ((new Date().getTime() - initiation) < millisecs);
+}
+
 
 const getRecipe = () => {
+    let title = []
+    let url = []
+    
     let recipeSearch = document.querySelector('#Recipes').value
         fetch(`https://www.food2fork.com/api/search?key=${apiRecipe}&q=${recipeSearch}&page=2`)        
-            .then(r => r.json())
-            .then(r => {
-                console.log(r)
-            for (let i = 0; i <= 1; i++) {
-
+        .then(r => r.json())
+        .then(r => {
+            console.log(r)
+            for (let i = 0; i <= 9; i++) {
                 
-        
+                
+                
                 title.push(r.recipes[i].title)
                 url.push(r.recipes[i].f2f_url)
-                console.log(title)
                 let recElem = document.createElement('div')
                 recElem.setAttribute('id',`vid${i}`)
                 recElem.setAttribute('class', 'recipeVid')
                 recElem.innerHTML =`
-                    <h6 class='title'>${title[i]}</h6>        
-                    <a href="${url[i]}" target="_blank">Click here for Recipe! :)</a>
-                    <hr>
-                    `
-                    document.querySelector('#recipeLink').append(recElem)
-
-                    getYt(title, i, recElem)
-                    
-                    
-                }    
+                <h6 class='title'>${title[i]}</h6>        
+                <a href="${url[i]}" target="_blank">Click here for Recipe! :)</a>
+                <hr>
+                `
+                document.querySelector('#recipeLink').append(recElem)
                 
-            })
-
-        }
-
-
-       
-const getYt = (title, i) => {
+                
+                // console.log(title)
+                // console.log(url)
+                // console.log(vidId)
+            }
+            getYt(title, i, recElem, vidId)
+            
+            
+        })
+        // console.log(vidId)
+        
+    }
+    
+    
+    
+    const getYt = (title, i) => {
+        let vidId = []
+        for (let i = 0; i <= 9; i++){
         fetch(`https://www.googleapis.com/youtube/v3/search?part=id&q=${title[i]}&type=video&key=AIzaSyBDmq6-SlY6LWmYDPunDUoOxU8fR07rDpA`)
         .then(r => r.json())
         .then(r => {
-            console.log(r)
             vidId.push(r.items[1].id.videoId)
             console.log(vidId)
             
@@ -59,24 +70,20 @@ const getYt = (title, i) => {
                     `
                 
             document.querySelector(`#vid${i}`).append(vidElem)
-                    
             
         })
+        sleep_ms(500)
+    }
         
-    
+        
     } 
-
-
-
-
-document.querySelector('#search').addEventListener('click', e => {
-    e.preventDefault()
-    document.querySelector('#recipeLink').innerHTML = ''
-    getRecipe()
-    let vidId = []
-    let title = []
-    let url = []
-    let recipes = []
-
-
+    
+    
+    
+    
+    document.querySelector('#search').addEventListener('click', e => {
+        e.preventDefault()
+        document.querySelector('#recipeLink').innerHTML = ''
+        let vidId = []
+        getRecipe(vidId)
 })
