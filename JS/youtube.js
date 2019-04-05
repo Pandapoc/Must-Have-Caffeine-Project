@@ -8,9 +8,9 @@
 //  })
 //  .catch(e => console.error(e))
  
-document.addEventListener('click', e =>{
-    e.preventDefault()
+document.addEventListener('click', e =>{  
     if(e.target.id === 'searchRecipes'){
+        e.preventDefault()
         let recipes = document.querySelector("#Recipes").value
         document.querySelector("#ytplayer").setAttribute("src", `https://www.youtube.com/embed?listType=search&list=${recipes}`)}
     })
