@@ -6,40 +6,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  
+  <link rel="stylesheet" href="../Css/resets.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../Css/style.css">
+  
 </head>
 
 <body>
 
-<!-- Dropdown Structure -->
-    <ul id="dropdown1" class="dropdown-content">
-      <li><a href="homepage1.html">Home</a></li>
-      <li><a href="recipes.html">Recipes</a></li>
-      <li class="divider"></li>
-      <li><a href="items.html">Items</a></li>
-    </ul>
-
-<!-- Nav Bar -->
-    <nav>    
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Logo</a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="homepage1.html">Home</a></li>
-            <li><a href="recipes.html">Recipes</a></li>
-            <li><a href="items.html">Items</a></li>
-<!-- Dropdown Trigger -->
-          <li>
-              <a class="dropdown-trigger" href="#!" data-target="dropdown1">
-                  Dropdown<i class="material-icons right">arrow_drop_down</i>
-              </a>
-          </li>   
+<!--New Navbar!!!!!!!!!!!!!!-->
+    <div class="navbar-fixed">
+        <nav class="teal">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">Logo</a>
+                    <a href="#" data-target="mobile-nav" 
+                        class="sidenav-trigger">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="homepage1.html">Home</a></li>
+                        <li><a href="recipes.html">Recipes</a></li>
+                        <li><a href="items.html">Items</a></li>
+                        <li><a href="#">Search</a></li>
+                    </ul>
+                </div>
+            </div>           
+        </nav>
+        <ul class="sidenav" id="mobile-nav">
+                <li><a href="homepage1.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="items.html">Items</a></li>
+                <li><a href="#">Search</a></li>
         </ul>
-      </div>
-    </nav>
+        <!--new added-->
+    </div>
 
-<!-- introduction about the app-->
+<!--section slider-->
+<main>
+
+<div class="carousel">
+    <a class="carousel-item" href="#one!">
+        <img src="../Css/image/food1.jpg">
+    </a>
+    <a class="carousel-item" href="#two!">
+        <img src="../Css/image/food2.jpg">
+    </a>
+    <a class="carousel-item" href="#three!">
+        <img src="../Css/image/food3.jpg">
+    </a>
+    <a class="carousel-item" href="#four!">
+        <img src="../Css/image/food4.jpg">
+    </a>
+    <a class="carousel-item" href="#five!">
+        <img src="../Css/image/food5.jpg">
+    </a>
+</div>  
+
+<!--Introduction about the App-->
+<div class="introduction">
     <p>Introduction:
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis odio ex 
         commodi consectetur tempore eius sapiente praesentium nostrum veritatis ea ullam, 
@@ -48,21 +74,60 @@
         dignissimos quos sit aliquam unde labore praesentium nobis atque, quae inventore error, 
         libero iusto consequuntur corrupti!
     </p>
+</div>
+<br>
+<br>
+<br>
 
-<!-- button for either Receipt or items -->
-    <button id="reciPage">Recipes</button>
-    <button id="itemPage">Items</button>
+<section class="homepage-link">
+        <div class="btnRecipe">
+            <a class="waves-effect waves-light btn-large" href="recipes.html">
+            <i class="material-icons left">cake</i>Recipes</a>
+        </div>
+        <div class="btnItem">
+            <a class="waves-effect waves-light btn-large" href="items.html">
+            <i class="material-icons left">view_headline</i>Items</a>
+        </div>   
+</section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div class="rowContainer">
+    <div class="col1"><p>s12 m4</p></div>
+    <div class="col2"><p>s12 m5</p></div>
+    <div class="col3"><p>s12 m6</p></div>
+    <div class="col4"><p>s12 m7</p></div>
+    <div class="col5"><p>s12 m8</p></div>
+    <div class="col6"><p>s12 m8</p></div>
+    <div class="col7"><p>s12 m8</p></div>
+    <div class="col8"><p>s12 m8</p></div>
+    <div class="col9"><p>s12 m8</p></div>
+    <div class="col10"><p>s12 m8</p></div>
+</div>
+
+</main>
+
+<footer>
+    <h5>add some input or lilnk here!!!</h5>
+</footer>
+
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="../JS/things.js"></script>
 
-<!--Enable the Dropdown-->
     <script>
-        $(document).ready(() => {
-          $(".dropdown-trigger").dropdown();
-        })
+        // sidenav
+        const sideNav = document.querySelector('.sidenav');
+        M.Sidenav.init(sideNav, {});
+
+    // sliders
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems);
+  });
+
+
     </script>
+
+
 </body>
 
 </html>
