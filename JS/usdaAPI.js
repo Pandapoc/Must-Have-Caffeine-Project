@@ -78,19 +78,18 @@ const nutritionTable = r => {
 const ingredientNutrients = NDBno => {
   document.querySelector('#ingredients').innerHTML = ''
   document.querySelector('.ingredientOption')
-  NDBno =
 
-    fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}&measureby=m`)
-      .then(r => r.json())
-      .then(r => {
-        // console.log(r.report.food)
-        if (r.report.food.cn === '') {
-          console.log(`${r.report.food.name} name`)
-        } else {
-          console.log(`${r.report.food.cn} cn`)
-        }
-        nutritionTable(r)
-      })
+  fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}&measureby=m`)
+    .then(r => r.json())
+    .then(r => {
+      // console.log(r.report.food)
+      if (r.report.food.cn === '') {
+        console.log(`${r.report.food.name} name`)
+      } else {
+        console.log(`${r.report.food.cn} cn`)
+      }
+      nutritionTable(r)
+    })
 }
 
 const searchItems = _ => {
@@ -117,7 +116,6 @@ const searchItems = _ => {
 
 document.addEventListener('click', e => {
   if (e.target.className === 'ingredientOption') {
-    // console.log(e.target.className)
-    console.log(e.dataset.ndbno)
+    ingredientNutrients(e.target.dataset.ndbno)
   }
 })
