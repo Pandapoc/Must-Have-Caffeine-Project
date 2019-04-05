@@ -46,23 +46,26 @@ const databaseSelect = _ => {
 }
 
 const printIngredientInfo = _ => {
-  console.log(ingredientInfo)
+  // console.log(ingredientInfo)
+  document.querySelector('#nutritionFacts').innerHTML = ''
+  
   let nutritionInfoTable = document.createElement('div')
   nutritionInfoTable.id = 'nutritionInfoTable'
   nutritionInfoTable.innerHTML =
     `
   <h5>${ingredientInfo.name} Nutrients</h5>
   <ul>
-  <li>Calories:</li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Calories: ${ingredientInfo.calories}</li>
+  <li>Total fat: ${ingredientInfo.totalFat}</li>
+  <li>Saturated fat: ${ingredientInfo.satFat}</li>
+  <li>Trans fat: ${ingredientInfo.transFat}</li>
+  <li>Cholesterol: ${ingredientInfo.cholesterol}</li>
+  <li>Sodium: ${ingredientInfo.sodium}</li>
+  <li>Carbohydrates: ${ingredientInfo.carbs}</li>
+  <li>Fiber: ${ingredientInfo.fiber}</li>
+  <li>Sugar: ${ingredientInfo.sugar}</li>
+  <li>Protein: ${ingredientInfo.protein}</li>
+  <li id="caffeineLI">Caffeine: ${ingredientInfo.caffeine}</li>
   </ul>
   `
   document.querySelector('#nutritionFacts').append(nutritionInfoTable)
