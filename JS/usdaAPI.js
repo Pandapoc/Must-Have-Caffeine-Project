@@ -46,7 +46,6 @@ const databaseSelect = _ => {
 }
 
 const printIngredientInfo = _ => {
-  // console.log(ingredientInfo)
   document.querySelector('#nutritionFacts').innerHTML = ''
   
   let nutritionInfoTable = document.createElement('div')
