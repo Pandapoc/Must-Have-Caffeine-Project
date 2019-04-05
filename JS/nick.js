@@ -73,6 +73,10 @@ document.querySelector('#search').addEventListener('click', e => {
     e.preventDefault()
     document.querySelector('#recipeLink').innerHTML = ''
     getRecipe()
+    let vidId = []
+    let title = []
+    let url = []
+    let recipes = []
 
 
 })
