@@ -47,8 +47,12 @@
         <input type="text" name="Recipes" id="Recipes">
 
 
+      <!-- search Bar -->
+      <form>
+            <label for="Recipes">Food Recipes:</label>
+            <input type="text" name="Recipes" id="Recipes">
+            <button id='search'>Search</button>
 
-        <button id='search'>Search</button>
 
     </form>
     <!-- search Result -->
@@ -65,24 +69,30 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
+   <!---<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="../JS/nick.js"></script>
+    <script src="../JS/youtube.js"></script>
 
 
     <script>
         // sidenav
         const sideNav = document.querySelector('.sidenav');
         M.Sidenav.init(sideNav, {});
-    </script>
+<script>
+  <script>
 
-    <script>
+  // Load the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  
+   tag.src = "https://www.youtube.com/player_api"
+
+    
         // Load the IFrame Player API code asynchronously.
         var tag = document.createElement('script');
 
         tag.src = "https://www.youtube.com/player_api"
+
 
         //tag.src = 
 
@@ -102,9 +112,11 @@
         }
 
 
+
     </script>
 
     <script src="../JS/youtube.js"></script>
+
 
 </body>
 
