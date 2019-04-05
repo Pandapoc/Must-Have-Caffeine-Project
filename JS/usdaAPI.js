@@ -6,6 +6,7 @@ let brandedButton = document.querySelector('#branded')
 let searchItem
 let database
 let offset = 0
+let ingredientInfo = {}
 
 document.querySelector('#searchBtn').addEventListener('click', e => {
   e.preventDefault()
@@ -38,13 +39,41 @@ const databaseSelect = _ => {
 }
 
 const nutritionTable = r => {
-  console.log(r.report.food)
-  // nutrients: serving size, calories, calories from fat, total fat, saturated fat, trans fat, cholesterol, sodium, total carbs, fiber, sugar, protein
+  let nutrientReport = r.report.food.nutrients
+
+  for (let i = 0; i < nutrientReport.length; i++) {
+    let nutrientID = nutrientReport[i].nutrient_id
+    if (nutrientID === 208) {
+      ingredientInfo.calories = nutrientReport[i].value
+    } else if (nutrientID === 204) {
+      ingredientInfo.totalFat = nutrientReport[i].value
+    } else if (nutrientID === 606) {
+      ingredientInfo.satFat = nutrientReport[i].value
+    } else if (nutrientID === 605) {
+      ingredientInfo.transFat = nutrientReport[i].value
+    } else if (nutrientID === 601) {
+      ingredientInfo.cholesterol = nutrientReport[i].value
+    } else if (nutrientID === 307) {
+      ingredientInfo.sodium = nutrientReport[i].value
+    } else if (nutrientID === 205) {
+      ingredientInfo.carbs = nutrientReport[i].value
+    } else if (nutrientID === 291) {
+      ingredientInfo.fiber = nutrientReport[i].value
+    } else if (nutrientID === 269) {
+      ingredientInfo.sugar = nutrientReport[i].value
+    } else if (nutrientID === 203) {
+      ingredientInfo.protein = nutrientReport[i].value
+    } else if (nutrientID === 262) {
+      ingredientInfo.caffeine = nutrientReport[i].value
+    }
+  }
+
+  console.log(ingredientInfo)
 }
 
 const ingredientNutrients = NDBno => {
   document.querySelector('#ingredients').innerHTML = ''
-  fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}`)
+  fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}&measureby=m`)
     .then(r => r.json())
     .then(r => {
       // console.log(r.report.food)
