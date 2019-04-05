@@ -50,14 +50,16 @@ const getRecipe = () => {
                 url.push(r.recipes[i].f2f_url)
                 console.log(title)
                 let recElem = document.createElement('div')
+                recElem.setAttribute('id',`vid${i}`)
                 recElem.innerHTML =`
                     <h6 id='title'>${title[i]}</h6>        
                     <a href="${url[i]}" target="_blank">Click here for Recipe! :)</a>
                     <hr>
+
                     `
                     document.querySelector('#recipeLink').append(recElem)
 
-                    getYt(title, i)
+                    getYt(title, i, recElem)
                     
                     
                 }    
@@ -88,7 +90,7 @@ const getYt = (title, i) => {
                     <iframe width="320" height="160" src="https://www.youtube.com/embed/${vidId[i]}" frameborder="0" allowfullscreen></iframe>
                     `
                 
-                    document.querySelector('#recipeLink').append(vidElem)
+                    document.querySelector(`#vid${i}`).append(vidElem)
                     
             
         })
