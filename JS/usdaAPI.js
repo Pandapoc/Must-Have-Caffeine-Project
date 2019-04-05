@@ -4,6 +4,7 @@ let standardButton = document.querySelector('#standard')
 let branded = 'Branded Food Products'
 let brandedButton = document.querySelector('#branded')
 let searchItem
+let NDBno
 let database
 let offset = 0
 let ingredientInfo = {}
@@ -38,6 +39,10 @@ const databaseSelect = _ => {
   }
 }
 
+const printIngredientInfo = _ => {
+  console.log(ingredientInfo)
+}
+
 const nutritionTable = r => {
   let nutrientReport = r.report.food.nutrients
 
@@ -67,23 +72,25 @@ const nutritionTable = r => {
       ingredientInfo.caffeine = nutrientReport[i].value
     }
   }
-
-  console.log(ingredientInfo)
+  printIngredientInfo()
 }
 
 const ingredientNutrients = NDBno => {
   document.querySelector('#ingredients').innerHTML = ''
-  fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}&measureby=m`)
-    .then(r => r.json())
-    .then(r => {
-      // console.log(r.report.food)
-      if (r.report.food.cn === '') {
-        console.log(`${r.report.food.name} name`)
-      } else {
-        console.log(`${r.report.food.cn} cn`)
-      }
-      nutritionTable(r)
-    })
+  document.querySelector('.ingredientOption')
+  NDBno =
+
+    fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}&measureby=m`)
+      .then(r => r.json())
+      .then(r => {
+        // console.log(r.report.food)
+        if (r.report.food.cn === '') {
+          console.log(`${r.report.food.name} name`)
+        } else {
+          console.log(`${r.report.food.cn} cn`)
+        }
+        nutritionTable(r)
+      })
 }
 
 const searchItems = _ => {
@@ -94,14 +101,23 @@ const searchItems = _ => {
     .then(r => r.json())
     .then(r => {
       r.list.item.forEach(item => {
-        let NDBno = item.ndbno
+        NDBno = item.ndbno
         let ingredientName = item.name
-        let ingredient = document.createElement('div')
-        ingredient.innerHTML = `
-        <a href="javascript:ingredientNutrients(${NDBno})">${ingredientName}</a>
-        `
+        let ingredient = document.createElement('li')
+        ingredient.className = 'ingredientOption'
+        ingredient.dataset.ndbno = NDBno
+        ingredient.innerHTML =
+          `
+        ${ingredientName}
+          `
         document.querySelector('#ingredients').append(ingredient)
       })
     })
-
 }
+
+document.addEventListener('click', e => {
+  if (e.target.className === 'ingredientOption') {
+    // console.log(e.target.className)
+    console.log(e.dataset.ndbno)
+  }
+})
