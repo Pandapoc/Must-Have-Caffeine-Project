@@ -72,7 +72,7 @@ const printIngredientInfo = _ => {
 
 const nutritionTable = r => {
   let nutrientReport = r.report.food.nutrients
-  console.log(nutrientReport)
+  // console.log(nutrientReport)
 
   for (let i = 0; i < nutrientReport.length; i++) {
     let nutrientID = nutrientReport[i].nutrient_id
