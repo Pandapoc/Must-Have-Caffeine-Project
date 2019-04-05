@@ -7,3 +7,16 @@ li {
     z-index: 800 !important;
 }
 
+.homepage-link {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.btnRecipe {
+    margin: 2% 0 0 15%;
+ 
+}
+.btnItem {
+    margin: 2% 5% 0 7%;
+}
+
+
