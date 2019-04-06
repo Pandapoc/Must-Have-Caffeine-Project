@@ -26,7 +26,6 @@ document.querySelector('#searchBtn').addEventListener('click', e => {
     databaseSelect()
     buttonUnselect()
     document.querySelector('#blankSearch').style.display = 'none'
-    document.querySelector('#uncheckedBox').style.visibility = 'hidden'
     document.querySelector('#searchItem').value = ''
   }
 })
@@ -73,6 +72,7 @@ const printIngredientInfo = _ => {
 
 const nutritionTable = r => {
   let nutrientReport = r.report.food.nutrients
+  console.log(nutrientReport)
 
   for (let i = 0; i < nutrientReport.length; i++) {
     let nutrientID = nutrientReport[i].nutrient_id
@@ -118,34 +118,27 @@ const ingredientNutrients = NDBno => {
       }
       nutritionTable(r)
     })
-    .catch(e => console.log(e))
 }
 
 const searchItems = _ => {
   searchItem = document.querySelector('#searchItem').value
   document.querySelector('#ingredients').style.display = 'inline'
   document.querySelector('#ingredients').innerHTML = ''
-  document.querySelector('#invalidFood').style.display = 'none'
 
-  fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=7&offset=${offset}&api_key=${apiUSDA}`)
+  fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=10&offset=${offset}&api_key=${apiUSDA}`)
     .then(r => r.json())
     .then(r => {
-      if (r.errors) {
-        document.querySelector('#invalidFood').style.display = 'inline'
-      } else {
-        r.list.item.forEach(item => {
-          NDBno = item.ndbno
-          let ingredient = document.createElement('li')
-          ingredient.className = 'ingredientOption'
-          ingredient.dataset.ndbno = NDBno
-          ingredient.style.textDecoration = 'underline'
-          ingredient.innerHTML =
-            `
-        ${item.name}
+      r.list.item.forEach(item => {
+        NDBno = item.ndbno
+        let ingredientName = item.name
+        let ingredient = document.createElement('li')
+        ingredient.className = 'ingredientOption'
+        ingredient.dataset.ndbno = NDBno
+        ingredient.innerHTML =
           `
-          document.querySelector('#ingredients').append(ingredient)
-        })
-      }
+        ${ingredientName}
+          `
+        document.querySelector('#ingredients').append(ingredient)
+      })
     })
-    .catch(e => console.log(e))
 }
