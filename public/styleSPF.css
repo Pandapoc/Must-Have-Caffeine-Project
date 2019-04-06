@@ -2,6 +2,14 @@
   display: none;
 }
 
+#invalidFood {
+  display: none;
+}
+
 #uncheckedBox {
+  visibility: hidden;
+}
+
+#caffeineLI {
   visibility: hidden;
 }
