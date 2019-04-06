@@ -118,12 +118,14 @@ const ingredientNutrients = NDBno => {
       }
       nutritionTable(r)
     })
+    .catch(e => console.log(e))
 }
 
 const searchItems = _ => {
   searchItem = document.querySelector('#searchItem').value
   document.querySelector('#ingredients').style.display = 'inline'
   document.querySelector('#ingredients').innerHTML = ''
+  document.querySelector('#nextIngredientsBtn').style.display = 'inline'
 
   fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=10&offset=${offset}&api_key=${apiUSDA}`)
     .then(r => r.json())
@@ -136,9 +138,11 @@ const searchItems = _ => {
         ingredient.dataset.ndbno = NDBno
         ingredient.innerHTML =
           `
-        ${ingredientName}
-          `
+      ${ingredientName}
+      `
         document.querySelector('#ingredients').append(ingredient)
       })
     })
+    .catch(e => console.log(e))
+
 }
