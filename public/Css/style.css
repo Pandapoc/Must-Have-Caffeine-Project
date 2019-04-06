@@ -25,7 +25,7 @@ li {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     width: 80%;
-    margin-top: 5%;
+    margin: 5% 10% 0 10%;
     background-color: lightblue;
 }
 
@@ -45,6 +45,30 @@ li {
     width: 80%;
     border: 1px solid teal;
     margin: 0 10% 0 10%;
+}
+
+.align-center {
+    font-family: 'Averia Libre';
+    text-align: center;
+    border: 1px solid steelblue;
+    background-color: lightsteelblue;
+    color: black;
+}
+#ingredients {
+    font-family: 'Kurale', serif;
+    border: 1px solid steelblue;
+    background-color: lightsteelblue;
+    line-height: 25px;
+    font-size: 12pt;
+}
+
+#ingredients li {
+    margin-left: 25px;
+}
+
+.row h6 {
+    border: 2px solid teal;
+    font-family: 'Averia Libre', cursive;
 }
 
 
