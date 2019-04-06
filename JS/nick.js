@@ -18,72 +18,70 @@ function sleep_ms(millisecs) {
 const getRecipe = () => {
     let title = []
     let url = []
-    
+
     let recipeSearch = document.querySelector('#Recipes').value
-        fetch(`https://www.food2fork.com/api/search?key=${apiRecipe}&q=${recipeSearch}&page=2`)        
+    fetch(`https://www.food2fork.com/api/search?key=${apiRecipe}&q=${recipeSearch}&page=2`)
         .then(r => r.json())
         .then(r => {
             console.log(r)
-            for (let i = 0; i <= 9; i++) {
-                
-                
-                
+            for (let i = 0; i <= 3; i++) {
                 title.push(r.recipes[i].title)
                 url.push(r.recipes[i].f2f_url)
                 let recElem = document.createElement('div')
-                recElem.setAttribute('id',`vid${i}`)
+                recElem.setAttribute('id', `vid${i}`)
                 recElem.setAttribute('class', 'recipeVid')
-                recElem.innerHTML =`
-                <h6 class='title'>${title[i]}</h6>        
-                <a href="${url[i]}" target="_blank">Click here for Recipe! :)</a>
-                <hr>
-                `
+                recElem.innerHTML = `
+        <h6 class='title'>${title[i]}</h6>        
+        <a href="${url[i]}" target="_blank">Click here for Recipe! :)</a>
+        <hr>
+        `
                 document.querySelector('#recipeLink').append(recElem)
-                
-                
-                // console.log(title)
-                // console.log(url)
-                // console.log(vidId)
             }
             getYt(title, i, recElem, vidId)
-            
-            
         })
-        // console.log(vidId)
-        
-    }
-    
-    
-    
-    const getYt = (title, i) => {
-        let vidId = []
-        for (let i = 0; i <= 9; i++){
+        .catch(error => {
+
+            let errElem = document.createElement('div')
+            errElem.setAttribute('class', 'error')
+            errElem.innerHTML = `
+            <p>Hey! that didn't work :(. Try a food item you would like to use in a recipe!</p>
+            `
+
+            document.querySelector('#recipeLink').append(errElem)
+        })
+}
+
+
+
+const getYt = (title, i) => {
+    let vidId = []
+    for (let i = 0; i <= 3; i++) {
         fetch(`https://www.googleapis.com/youtube/v3/search?part=id&q=${title[i]}&type=video&key=AIzaSyBDmq6-SlY6LWmYDPunDUoOxU8fR07rDpA`)
-        .then(r => r.json())
-        .then(r => {
-            vidId.push(r.items[1].id.videoId)
-            console.log(vidId)
-            
-            let vidElem = document.createElement('div')
-                    vidElem.innerHTML= `
+            .then(r => r.json())
+            .then(r => {
+                vidId.push(r.items[2].id.videoId)
+                console.log(vidId)
+                let vidElem = document.createElement('div')
+                vidElem.innerHTML = `
                     <iframe width="320" height="160" src="https://www.youtube.com/embed/${vidId[i]}" frameborder="0" allowfullscreen></iframe>
                     `
-                
-            document.querySelector(`#vid${i}`).append(vidElem)
-            
-        })
-        sleep_ms(500)
+                document.querySelector(`#vid${i}`).append(vidElem)
+
+            })
+        sleep_ms(250)
     }
-        
-        
-    } 
-    
-    
-    
-    
-    document.querySelector('#search').addEventListener('click', e => {
-        e.preventDefault()
-        document.querySelector('#recipeLink').innerHTML = ''
-        let vidId = []
-        getRecipe(vidId)
+
+
+}
+
+
+
+
+document.querySelector('#search').addEventListener('click', e => {
+    e.preventDefault()
+    document.querySelector('#recipeLink').innerHTML = ''
+    let vidId = []
+    getRecipe(vidId)
+    document.querySelector('#Recipes').value = ''
+
 })
