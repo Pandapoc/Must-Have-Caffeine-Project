@@ -25,6 +25,7 @@ document.querySelector('#searchBtn').addEventListener('click', e => {
     document.querySelector('#blankSearch').style.display = 'inline'
     document.querySelector('#uncheckedBox').style.visibility = 'hidden'
   } else {
+    document.querySelector('#nutritionFacts').style.display = 'none'
     offset = 0
     ingredientInfo = {}
     searchItem = document.querySelector('#searchItem').value
@@ -52,6 +53,7 @@ const databaseSelect = _ => {
 }
 
 const printIngredientInfo = _ => {
+  document.querySelector('#nutritionFacts').style.display = 'inline'
   document.querySelector('#nutritionFacts').innerHTML = ''
 
   let nutritionInfoTable = document.createElement('div')
@@ -78,7 +80,6 @@ const printIngredientInfo = _ => {
 
 const nutritionTable = r => {
   let nutrientReport = r.report.food.nutrients
-  console.log(nutrientReport)
 
   for (let i = 0; i < nutrientReport.length; i++) {
     let nutrientID = nutrientReport[i].nutrient_id
@@ -112,7 +113,6 @@ const nutritionTable = r => {
 const ingredientNutrients = NDBno => {
   document.querySelector('#ingredients').innerHTML = ''
   document.querySelector('#foodOptions').style.display = 'none'
-  document.querySelector('.ingredientOption')
 
   fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}&measureby=m`)
     .then(r => r.json())
@@ -128,6 +128,7 @@ const ingredientNutrients = NDBno => {
 }
 
 const searchItems = _ => {
+  document.querySelector('#foodOptions').style.display = 'inline'
   document.querySelector('#ingredients').style.display = 'inline'
   document.querySelector('#ingredients').innerHTML = ''
 
