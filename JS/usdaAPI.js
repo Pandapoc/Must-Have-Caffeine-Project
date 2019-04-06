@@ -13,7 +13,15 @@ document.addEventListener('click', e => {
   if (e.target.className === 'ingredientOption') {
     ingredientNutrients(e.target.dataset.ndbno)
   } else if (e.target.id === 'nextIngredientsBtn') {
+    document.querySelector('#prevIngredientsBtn').style.display = 'inline'
+    offset += 7
     searchItems()
+  } else if (e.target.id === 'prevIngredientsBtn') {
+    offset -= 7
+    searchItems()
+  } if (offset <= 0) {
+    document.querySelector('#prevIngredientsBtn').style.display = 'none'
+    offset = 0
   }
 })
 
@@ -141,6 +149,7 @@ const searchItems = _ => {
   fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=7&offset=${offset}&api_key=${apiUSDA}`)
     .then(r => r.json())
     .then(r => {
+      console.log(r)
       r.list.item.forEach(item => {
         NDBno = item.ndbno
         let ingredientName = item.name
@@ -154,8 +163,8 @@ const searchItems = _ => {
         document.querySelector('#ingredients').append(ingredient)
       })
       document.querySelector('#nextIngredientsBtn').style.display = 'inline'
-      offset += 7
     })
+    
     .catch(e => console.log(e))
 
 }

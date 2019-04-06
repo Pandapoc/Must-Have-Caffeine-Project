@@ -22,6 +22,10 @@
   display: none;
 }
 
+#prevIngredientsBtn {
+  display: none;
+}
+
 #foodOptions {
   display: none;
 }
