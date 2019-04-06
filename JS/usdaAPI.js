@@ -124,8 +124,8 @@ const ingredientNutrients = NDBno => {
 const searchItems = _ => {
   searchItem = document.querySelector('#searchItem').value
   document.querySelector('#ingredients').style.display = 'inline'
-  document.querySelector('#ingredients').innerHTML = ''
   document.querySelector('#nextIngredientsBtn').style.display = 'inline'
+  document.querySelector('#ingredients').innerHTML = ''
 
   fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=10&offset=${offset}&api_key=${apiUSDA}`)
     .then(r => r.json())
