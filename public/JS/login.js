@@ -17,7 +17,7 @@ let storage = firebase.storage()
 let auth = firebase.auth
 
 const uiConfig = {
-    signInSuccessURL: `../public/index.html`,
+    signInSuccessURL: '/',
     signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID
     ],
