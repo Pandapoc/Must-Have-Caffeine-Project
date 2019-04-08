@@ -19,7 +19,9 @@
 
 <body>
 
-  <!--New Navbar!!!!!!!!!!!!!!-->
+
+<main class="wrapperitem">
+
   <div class="navbar-fixed">
     <nav class="teal">
       <div class="container">
@@ -46,14 +48,18 @@
   </div>
 
   <div class="container">
-    <div class="row">
+
+    <div class="row" id="backgroundImg1">
+
       <div class="col s12 m12 l12 xl12">
         <h6>Search for the nutritional information on almost any item. Search for basic items (e.g. banana, chicken,
           eggs) or branded items (e.g. Starbucks coffee, Heinz ketchup, Chobani yogurt).</h6>
       </div>
     </div>
 
-    <div class="row">
+
+    <div class="row" id="backgroundImg2">
+
       <div class="col s12 m12 l 12 xl12">
         <form>
           <p>
@@ -73,7 +79,8 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" id="backgroundImg3">
+
       <div class="col s12 m12 l12 xl12">
         <form>
           <input type="text" name="Items" id="searchItem">
@@ -108,29 +115,15 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col s12 m12 l12 xl12">
-    <div id="gifDiv">Food Giphy/Food facts</div>
-  </div>
-  </div> 
-
-  </div> -->
-
-
 
     <script src="./JS/usdaAPI.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  
-      <!--enable dropdown functionality -->
-      <script>
-          const sideNav = document.querySelector('.sidenav');
-          M.Sidenav.init(sideNav, {});  
-      </script>
-      
-
+    <script>
+      const sideNav = document.querySelector('.sidenav');
+      M.Sidenav.init(sideNav, {});  
+    </script>
 
 
 </body>
