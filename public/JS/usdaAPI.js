@@ -3,15 +3,27 @@ let standard = 'Standard Reference'
 let standardButton = document.querySelector('#standard')
 let branded = 'Branded Food Products'
 let brandedButton = document.querySelector('#branded')
-let searchItem
-let NDBno
-let database
+let itemsToDisplay = 7
+let searchItem,
+  NDBno,
+  database,
+  totalItems
 let offset = 0
 let ingredientInfo = {}
 
 document.addEventListener('click', e => {
   if (e.target.className === 'ingredientOption') {
     ingredientNutrients(e.target.dataset.ndbno)
+  } else if (e.target.id === 'nextIngredientsBtn') {
+    document.querySelector('#prevIngredientsBtn').style.display = 'inline'
+    offset += 7
+    searchItems()
+  } else if (e.target.id === 'prevIngredientsBtn') {
+    offset -= 7
+    searchItems()
+  } if (offset <= 0) {
+    document.querySelector('#prevIngredientsBtn').style.display = 'none'
+    offset = 0
   }
 })
 
@@ -23,6 +35,11 @@ document.querySelector('#searchBtn').addEventListener('click', e => {
     document.querySelector('#blankSearch').style.display = 'inline'
     document.querySelector('#uncheckedBox').style.visibility = 'hidden'
   } else {
+    document.querySelector('#nutritionFacts').style.display = 'none'
+    offset = 0
+    ingredientInfo = {}
+    searchItem = document.querySelector('#searchItem').value
+    ingredientInfo.searchItem = searchItem
     databaseSelect()
     buttonUnselect()
     document.querySelector('#blankSearch').style.display = 'none'
@@ -46,6 +63,7 @@ const databaseSelect = _ => {
 }
 
 const printIngredientInfo = _ => {
+  document.querySelector('#nutritionFacts').style.display = 'inline'
   document.querySelector('#nutritionFacts').innerHTML = ''
 
   let nutritionInfoTable = document.createElement('div')
@@ -72,7 +90,6 @@ const printIngredientInfo = _ => {
 
 const nutritionTable = r => {
   let nutrientReport = r.report.food.nutrients
-  console.log(nutrientReport)
 
   for (let i = 0; i < nutrientReport.length; i++) {
     let nutrientID = nutrientReport[i].nutrient_id
@@ -106,7 +123,6 @@ const nutritionTable = r => {
 const ingredientNutrients = NDBno => {
   document.querySelector('#ingredients').innerHTML = ''
   document.querySelector('#foodOptions').style.display = 'none'
-  document.querySelector('.ingredientOption')
 
   fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}&measureby=m`)
     .then(r => r.json())
@@ -122,17 +138,25 @@ const ingredientNutrients = NDBno => {
 }
 
 const searchItems = _ => {
-  searchItem = document.querySelector('#searchItem').value
+  document.querySelector('#foodOptions').style.display = 'inline'
   document.querySelector('#ingredients').style.display = 'inline'
-  document.querySelector('#nextIngredientsBtn').style.display = 'inline'
   document.querySelector('#ingredients').innerHTML = ''
 
-  fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=10&offset=${offset}&api_key=${apiUSDA}`)
+  if (searchItem === '') {
+    searchItem = ingredientInfo.searchItem
+  } else {
+    searchItem = searchItem
+  }
+
+  fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=1000&offset=${offset}&api_key=${apiUSDA}`)
     .then(r => r.json())
     .then(r => {
-      r.list.item.forEach(item => {
-        NDBno = item.ndbno
-        let ingredientName = item.name
+      // totalItems = r.list.
+      console.log(r.list)
+      for (let i = offset; i < itemsToDisplay; i++) {
+        // r.list.item[i].forEach(item => {
+        NDBno = r.list.item[i].ndbno
+        let ingredientName = r.list.item[i].name
         let ingredient = document.createElement('li')
         ingredient.className = 'ingredientOption'
         ingredient.dataset.ndbno = NDBno
@@ -141,7 +165,10 @@ const searchItems = _ => {
       ${ingredientName}
       `
         document.querySelector('#ingredients').append(ingredient)
-      })
+      }
+      // })
+      // }
+      document.querySelector('#nextIngredientsBtn').style.display = 'inline'
     })
     .catch(e => console.log(e))
 
