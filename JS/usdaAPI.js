@@ -7,8 +7,8 @@ let searchItem,
   NDBno,
   database,
   totalItems
-let itemsToDisplay = 7
 let offset = 0
+let itemsToDisplay = 7
 let ingredientInfo = {}
 
 document.addEventListener('click', e => {
@@ -191,7 +191,6 @@ const searchItems = _ => {
           document.querySelector('#nextIngredientsBtn').style.display = 'none'
         }
         if (i === totalItems) {
-          console.log('reached limit')
           break
         }
         NDBno = r.list.item[i].ndbno
