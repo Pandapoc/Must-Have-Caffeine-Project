@@ -2,6 +2,10 @@
   display: none;
 }
 
+#ingredients {
+  display: none;
+}
+
 #invalidFood {
   display: none;
 }
@@ -12,4 +16,16 @@
 
 #caffeineLI {
   visibility: hidden;
+}
+
+#nextIngredientsBtn {
+  display: none;
+}
+
+#prevIngredientsBtn {
+  display: none;
+}
+
+#foodOptions {
+  display: none;
 }
