@@ -3,11 +3,11 @@ let standard = 'Standard Reference'
 let standardButton = document.querySelector('#standard')
 let branded = 'Branded Food Products'
 let brandedButton = document.querySelector('#branded')
-let itemsToDisplay = 7
 let searchItem,
   NDBno,
   database,
   totalItems
+let itemsToDisplay = 7
 let offset = 0
 let ingredientInfo = {}
 
@@ -17,9 +17,11 @@ document.addEventListener('click', e => {
   } else if (e.target.id === 'nextIngredientsBtn') {
     document.querySelector('#prevIngredientsBtn').style.display = 'inline'
     offset += 7
+    console.log(offset)
     searchItems()
   } else if (e.target.id === 'prevIngredientsBtn') {
     offset -= 7
+    console.log(offset)
     searchItems()
   } if (offset <= 0) {
     document.querySelector('#prevIngredientsBtn').style.display = 'none'
@@ -55,9 +57,11 @@ const buttonUnselect = _ => {
 const databaseSelect = _ => {
   if (standardButton.checked) {
     database = standard
+    ingredientInfo.database = database
     searchItems()
   } else if (brandedButton.checked) {
     database = branded
+    ingredientInfo.database = database
     searchItems()
   }
 }
@@ -142,19 +146,18 @@ const searchItems = _ => {
   document.querySelector('#ingredients').style.display = 'inline'
   document.querySelector('#ingredients').innerHTML = ''
 
-  if (searchItem === '') {
-    searchItem = ingredientInfo.searchItem
-  } else {
-    searchItem = searchItem
-  }
-
-  fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=1000&offset=${offset}&api_key=${apiUSDA}`)
+  fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${ingredientInfo.database}&max=1000&offset=0&api_key=${apiUSDA}`)
     .then(r => r.json())
     .then(r => {
-      // totalItems = r.list.
-      console.log(r.list)
-      for (let i = offset; i < itemsToDisplay; i++) {
-        // r.list.item[i].forEach(item => {
+      totalItems = r.list.total
+      for (let i = offset; i < offset + itemsToDisplay; i++) {
+        if ((totalItems - offset) < itemsToDisplay) {
+          document.querySelector('#nextIngredientsBtn').style.display = 'none'
+        } 
+        if (i === totalItems) {
+          console.log('reached limit')
+          break
+        }
         NDBno = r.list.item[i].ndbno
         let ingredientName = r.list.item[i].name
         let ingredient = document.createElement('li')
@@ -165,10 +168,8 @@ const searchItems = _ => {
       ${ingredientName}
       `
         document.querySelector('#ingredients').append(ingredient)
+        document.querySelector('#nextIngredientsBtn').style.display = 'inline'
       }
-      // })
-      // }
-      document.querySelector('#nextIngredientsBtn').style.display = 'inline'
     })
     .catch(e => console.log(e))
 
