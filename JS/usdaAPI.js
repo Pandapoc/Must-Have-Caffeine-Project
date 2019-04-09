@@ -3,9 +3,11 @@ let standard = 'Standard Reference'
 let standardButton = document.querySelector('#standard')
 let branded = 'Branded Food Products'
 let brandedButton = document.querySelector('#branded')
-let searchItem
-let NDBno
-let database
+let itemsToDisplay = 7
+let searchItem,
+  NDBno,
+  database,
+  totalItems
 let offset = 0
 let ingredientInfo = {}
 
@@ -146,13 +148,15 @@ const searchItems = _ => {
     searchItem = searchItem
   }
 
-  fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=7&offset=${offset}&api_key=${apiUSDA}`)
+  fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${database}&max=1000&offset=${offset}&api_key=${apiUSDA}`)
     .then(r => r.json())
     .then(r => {
-      console.log(r)
-      r.list.item.forEach(item => {
-        NDBno = item.ndbno
-        let ingredientName = item.name
+      // totalItems = r.list.
+      console.log(r.list)
+      for (let i = offset; i < itemsToDisplay; i++) {
+        // r.list.item[i].forEach(item => {
+        NDBno = r.list.item[i].ndbno
+        let ingredientName = r.list.item[i].name
         let ingredient = document.createElement('li')
         ingredient.className = 'ingredientOption'
         ingredient.dataset.ndbno = NDBno
@@ -161,10 +165,11 @@ const searchItems = _ => {
       ${ingredientName}
       `
         document.querySelector('#ingredients').append(ingredient)
-      })
+      }
+      // })
+      // }
       document.querySelector('#nextIngredientsBtn').style.display = 'inline'
     })
-    
     .catch(e => console.log(e))
 
 }
