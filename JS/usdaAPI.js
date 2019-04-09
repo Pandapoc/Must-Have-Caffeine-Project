@@ -17,13 +17,15 @@ document.addEventListener('click', e => {
   } else if (e.target.id === 'nextIngredientsBtn') {
     document.querySelector('#prevIngredientsBtn').style.display = 'inline'
     offset += 7
-    console.log(offset)
     searchItems()
   } else if (e.target.id === 'prevIngredientsBtn') {
     offset -= 7
-    console.log(offset)
     searchItems()
-  } if (offset <= 0) {
+  } else if (e.target.id === 'backBtn') {
+    searchItems()
+  }
+  
+  if (offset <= 0) {
     document.querySelector('#prevIngredientsBtn').style.display = 'none'
     offset = 0
   }
@@ -69,6 +71,7 @@ const databaseSelect = _ => {
 const printIngredientInfo = _ => {
   document.querySelector('#nutritionFacts').style.display = 'inline'
   document.querySelector('#nutritionFacts').innerHTML = ''
+  document.querySelector('#backBtn').style.display = 'inline'
 
   let nutritionInfoTable = document.createElement('div')
   nutritionInfoTable.id = 'nutritionInfoTable'
@@ -127,6 +130,7 @@ const nutritionTable = r => {
 const ingredientNutrients = NDBno => {
   document.querySelector('#ingredients').innerHTML = ''
   document.querySelector('#foodOptions').style.display = 'none'
+  document.querySelector('#backBtn').style.display = 'none'
 
   fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}&measureby=m`)
     .then(r => r.json())
@@ -145,6 +149,8 @@ const searchItems = _ => {
   document.querySelector('#foodOptions').style.display = 'inline'
   document.querySelector('#ingredients').style.display = 'inline'
   document.querySelector('#ingredients').innerHTML = ''
+  document.querySelector('#nutritionFacts').style.display = 'none'
+  document.querySelector('#backBtn').style.display = 'none'
 
   fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${ingredientInfo.database}&max=1000&offset=0&api_key=${apiUSDA}`)
     .then(r => r.json())

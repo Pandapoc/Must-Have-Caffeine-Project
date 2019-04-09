@@ -26,6 +26,14 @@
   display: none;
 }
 
+#backBtn {
+  display: none;
+}
+
+#nutritionFacts {
+  display: none;
+}
+
 #foodOptions {
   display: none;
 }
