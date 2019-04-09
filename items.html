@@ -49,9 +49,13 @@
 
     <div class="row" id="backgroundImg1">
 
-      <div class="col s12 m12 l12 xl12" id="item2">
+      <div class="col s12 m12 l12 xl12" id="item1">
+        <div class="itemDivWrapper">
+
+        
         <h6>Search for the nutritional information on almost any item. Search for basic items (e.g. banana, chicken,
           eggs) or branded items (e.g. Starbucks coffee, Heinz ketchup, Chobani yogurt).</h6>
+        </div>
       </div>
     </div>
 
@@ -82,7 +86,10 @@
       <div class="col s12 m12 l12 xl12">
         <form>
           <input type="text" name="Items" id="searchItem">
-          <button id="searchBtn">Search</button>
+          <button id="searchBtn">
+              <a class="waves-effect waves-light btn-large">
+                  <i class="material-icons right">search</i>search</a>
+          </button>
           <br>
           <div id="blankSearch">You can't search for nothing. Please enter a search term.</div>
         </form>
@@ -90,7 +97,7 @@
     </div>
 
     <div id="foodOptions">
-      <div class="align-center">
+      <div class="itemAlign">
         <h5>Food Options</h5>
       </div>
       <div id="ingredients">
