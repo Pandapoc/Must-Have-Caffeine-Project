@@ -23,8 +23,16 @@ document.addEventListener('click', e => {
     searchItems()
   } else if (e.target.id === 'backBtn') {
     searchItems()
+  } else if (e.target.id === 'caffeineBtn') {
+    document.querySelector('#caffeineLI').style.display = 'table-cell'
+    document.querySelector('#caffeineBtn').style.display = 'none'
+    document.querySelector('#noCaffeineNeeded').style.display = 'inline'
+  } else if (e.target.id === 'noCaffeineNeeded') {
+    document.querySelector('#caffeineLI').style.display = 'none'
+    document.querySelector('#noCaffeineNeeded').style.display = 'none'
+    document.querySelector('#caffeineBtn').style.display = 'inline'
   }
-  
+
   if (offset <= 0) {
     document.querySelector('#prevIngredientsBtn').style.display = 'none'
     offset = 0
@@ -72,26 +80,48 @@ const printIngredientInfo = _ => {
   document.querySelector('#nutritionFacts').style.display = 'inline'
   document.querySelector('#nutritionFacts').innerHTML = ''
   document.querySelector('#backBtn').style.display = 'inline'
+  document.querySelector('#caffeineBtn').style.display = 'inline'
 
   let nutritionInfoTable = document.createElement('div')
   nutritionInfoTable.id = 'nutritionInfoTable'
   nutritionInfoTable.innerHTML =
     `
-  <h5>${ingredientInfo.name} Nutrients</h5>
-  <ul>
-  <li>Calories: ${ingredientInfo.calories}</li>
-  <li>Total fat: ${ingredientInfo.totalFat}</li>
-  <li>Saturated fat: ${ingredientInfo.satFat}</li>
-  <li>Trans fat: ${ingredientInfo.transFat}</li>
-  <li>Cholesterol: ${ingredientInfo.cholesterol}</li>
-  <li>Sodium: ${ingredientInfo.sodium}</li>
-  <li>Carbohydrates: ${ingredientInfo.carbs}</li>
-  <li>Fiber: ${ingredientInfo.fiber}</li>
-  <li>Sugar: ${ingredientInfo.sugar}</li>
-  <li>Protein: ${ingredientInfo.protein}</li>
-  <li id="caffeineLI">Caffeine: ${ingredientInfo.caffeine}</li>
-  </ul>
-  `
+    <table>
+    <caption>${ingredientInfo.name} Nutrients</caption>
+    <tr>
+    <td>Calories: ${ingredientInfo.calories}</td>
+    </tr>
+    <tr>
+    <td>Total fat: ${ingredientInfo.totalFat}</td>
+    </tr>
+    <tr>
+    <td>Saturated fat: ${ingredientInfo.satFat}</td>
+    </tr>
+    <tr>
+    <td>Trans fat: ${ingredientInfo.transFat}</td>
+    </tr>
+    <tr>
+    <td>Cholesterol: ${ingredientInfo.cholesterol}</td>
+    </tr>
+    <tr>
+    <td>Sodium: ${ingredientInfo.sodium}</td>
+    </tr>
+    <tr>
+    <td>Carbohydrates: ${ingredientInfo.carbs}</td>
+    </tr>
+    <tr>
+    <td>Fiber: ${ingredientInfo.fiber}</td>
+    </tr>
+    <tr>
+    <td>Sugar: ${ingredientInfo.sugar}</td>
+    </tr>
+    <tr>
+    <td>Protein: ${ingredientInfo.protein}</td>
+    </tr>
+    <tr>
+    <td id="caffeineLI">Caffeine: ${ingredientInfo.caffeine}</td>
+    </tr>
+    `
   document.querySelector('#nutritionFacts').append(nutritionInfoTable)
 }
 
@@ -159,7 +189,7 @@ const searchItems = _ => {
       for (let i = offset; i < offset + itemsToDisplay; i++) {
         if ((totalItems - offset) < itemsToDisplay) {
           document.querySelector('#nextIngredientsBtn').style.display = 'none'
-        } 
+        }
         if (i === totalItems) {
           console.log('reached limit')
           break

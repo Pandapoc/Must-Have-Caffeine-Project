@@ -15,7 +15,7 @@
 }
 
 #caffeineLI {
-  visibility: hidden;
+  display: none;
 }
 
 #nextIngredientsBtn {
@@ -23,6 +23,14 @@
 }
 
 #prevIngredientsBtn {
+  display: none;
+}
+
+#caffeineBtn {
+  display: none;
+}
+
+#noCaffeineNeeded {
   display: none;
 }
 
