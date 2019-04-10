@@ -24,7 +24,7 @@ const getRecipe = () => {
         .then(r => r.json())
         .then(r => {
             console.log(r)
-            for (let i = 0; i <= 3; i++) {
+            for (let i = 0; i <= 9; i++) {
                 title.push(r.recipes[i].title)
                 url.push(r.recipes[i].f2f_url)
                 let recElem = document.createElement('div')
@@ -55,12 +55,11 @@ const getRecipe = () => {
 
 const getYt = (title, i) => {
     let vidId = []
-    for (let i = 0; i <= 3; i++) {
+    for (let i = 0; i <= 9; i++) {
         fetch(`https://www.googleapis.com/youtube/v3/search?part=id&q=${title[i]}&type=video&key=AIzaSyBDmq6-SlY6LWmYDPunDUoOxU8fR07rDpA`)
             .then(r => r.json())
             .then(r => {
                 vidId.push(r.items[2].id.videoId)
-                console.log(vidId)
                 let vidElem = document.createElement('div')
                 vidElem.innerHTML = `
                     <iframe width="320" height="160" src="https://www.youtube.com/embed/${vidId[i]}" frameborder="0" allowfullscreen></iframe>
