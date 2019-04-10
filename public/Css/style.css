@@ -3,39 +3,58 @@ li {
 }
 
 /* change to make hamburger bar clickable*/
-.sidenav-overlay{
+
+.sidenav-overlay {
     z-index: 800 !important;
 }
 
+<<<<<<< HEAD:Css/style.css
 /*index page*/
+=======
+>>>>>>> 77a13148d4ca46dd15dabea1e75614ba0bd79514:public/Css/style.css
 .homepage-link {
     width: 310px;
     margin-left: 15%
 }
+<<<<<<< HEAD:Css/style.css
 #btnItem {
     float: left;
 }
 
 #btnRecipe {
     float: right;
+=======
+
+.btnRecipe {
+    margin: 2% 0 0 15%;
 }
 
-.rowContainer {
+.btnItem {
+    margin: 2% 5% 0 7%;
+>>>>>>> 77a13148d4ca46dd15dabea1e75614ba0bd79514:public/Css/style.css
+}
+
+/* .rowContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     width: 70%;
     margin: 5% 15% 0 15%;
     background-color: lightblue;
-}
+} */
 
 .collum1, .collum2, .collum3, .collum4, 
 .collum5, .collum6, .collum7, .collum8, 
 .collum9, .collum10 { 
     border: 2px solid teal;
     width: 100%;
+<<<<<<< HEAD:Css/style.css
     height: 80px;
 }
+=======
+    height: 50px;
+} */
+>>>>>>> 77a13148d4ca46dd15dabea1e75614ba0bd79514:public/Css/style.css
 
 .carousel {
     height: 200px;
@@ -53,15 +72,20 @@ li {
 
 }
 
+<<<<<<< HEAD:Css/style.css
 /*item page*/
 
 .itemAlign {
+=======
+/* .align-center {
+>>>>>>> 77a13148d4ca46dd15dabea1e75614ba0bd79514:public/Css/style.css
     font-family: 'Averia Libre';
     text-align: center;
     border: 1px solid steelblue;
     background-color: lightsteelblue;
     color: black;
-}
+} */
+
 #foodOptions {
     font-family: 'Kurale', serif;
     border: 1px solid black;
@@ -96,20 +120,20 @@ li {
 #nutritionInfoTable {
     font-family: 'Averia Libre';
     border: 1px solid black;
-    background-color: lightsteelblue; 
+    background-color: lightsteelblue;
     padding: 10px 0 0 10px;
 }
 
 #nutritionInfoTable h5 {
     font-family: 'Kurale', serif;
     border: 1px solid black;
-    background-color:lightskyblue;
+    background-color: lightskyblue;
     font-size: 12pt;
-    margin:-9px 0 0 -10px;
+    margin: -9px 0 0 -10px;
     height: 50px;
     text-align: center;
     padding-top: 9px;
-    font-size: 13pt; 
+    font-size: 13pt;
     font-weight: bold;
 }
 
@@ -118,6 +142,7 @@ ul li {
 }
 
 #backgroundImg1 {
+<<<<<<< HEAD:Css/style.css
     background-image: url('../Css/image/item1.jpg');
     height: 250px;
     background-repeat: no-repeat;
@@ -142,6 +167,17 @@ ul li {
 #searchItem {
     background-color:#c7bbbb;
     padding-left: 3%;
+=======
+    background-image: url('../Css/image/itempage1.jpg');
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#searchItem {
+    background-color: #c7bbbb;
+>>>>>>> 77a13148d4ca46dd15dabea1e75614ba0bd79514:public/Css/style.css
 }
 
 #searchBtn {
@@ -157,13 +193,12 @@ body {
 span {
     color: #131212;
 }
+
 span:hover {
-    color:#26daa4;
-}
-#blankSearch, #uncheckedBox {
-    color:#ff0000;
+    color: #26daa4;
 }
 
+<<<<<<< HEAD:Css/style.css
 
 /*recipe page*/
 
@@ -203,3 +238,8 @@ span:hover {
 
 
 
+=======
+#blankSearch, #uncheckedBox {
+    color: #ff0000;
+}
+>>>>>>> 77a13148d4ca46dd15dabea1e75614ba0bd79514:public/Css/style.css

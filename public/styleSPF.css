@@ -1,0 +1,31 @@
+#blankSearch {
+  display: none;
+}
+
+#ingredients {
+  display: none;
+}
+
+#invalidFood {
+  display: none;
+}
+
+#uncheckedBox {
+  visibility: hidden;
+}
+
+#caffeineLI {
+  visibility: hidden;
+}
+
+#nextIngredientsBtn {
+  display: none;
+}
+
+#prevIngredientsBtn {
+  display: none;
+}
+
+#foodOptions {
+  display: none;
+}
