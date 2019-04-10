@@ -45,7 +45,7 @@ document.querySelector('#searchBtn').addEventListener('click', e => {
   if (standardButton.checked === false && brandedButton.checked === false) {
     document.querySelector('#uncheckedBox').style.visibility = 'visible'
   } else if (document.querySelector('#searchItem').value === '') {
-    document.querySelector('#blankSearch').style.display = 'inline'
+    document.querySelector('#blankSearch').style.display = 'block'
     document.querySelector('#uncheckedBox').style.visibility = 'hidden'
   } else {
     offset = 0
@@ -77,7 +77,7 @@ const databaseSelect = _ => {
 }
 
 const printIngredientInfo = _ => {
-  document.querySelector('#nutritionFacts').style.display = 'inline'
+  document.querySelector('#nutritionFacts').style.display = 'block'
   document.querySelector('#nutritionFacts').innerHTML = ''
   document.querySelector('#backBtn').style.display = 'inline'
   document.querySelector('#caffeineBtn').style.visibility = 'visible'
@@ -159,43 +159,30 @@ const nutritionTableStd = r => {
 
 const nutritionTableBrn = r => {
   let nutrientReportBrn = r.report.food.nutrients
-  console.log(nutrientReportBrn)
 
   for (let j = 0; j < nutrientReportBrn.length; j++) {
-    let nutrientid = nutrientReportBrn[j].nutrient_id
-    // console.log(nutrientid)
-    if (nutrientid === 208) {
+    let nutrientidBrn = nutrientReportBrn[j].nutrient_id
+    if (nutrientidBrn === '208') {
       ingredientInfo.calories = nutrientReportBrn[j].value
-      // console.log(nutrientReport[i].value)
-    } else if (nutrientid === 204) {
-      // console.log(nutrientReport[i].value)
+    } else if (nutrientidBrn === '204') {
       ingredientInfo.totalFat = nutrientReportBrn[j].value
-    } else if (nutrientid === 606) {
-      // console.log(nutrientReport[i].value)
+    } else if (nutrientidBrn === '606') {
       ingredientInfo.satFat = nutrientReportBrn[j].value
-    } else if (nutrientid === 605) {
-      // console.log(nutrientReport[i].value)
+    } else if (nutrientidBrn === '605') {
       ingredientInfo.transFat = nutrientReportBrn[j].value
-    } else if (nutrientid === 601) {
-      // console.log(nutrientReport[i].value)
+    } else if (nutrientidBrn === '601') {
       ingredientInfo.cholesterol = nutrientReportBrn[j].value
-    } else if (nutrientid === 307) {
-      // console.log(nutrientReport[i].value)
+    } else if (nutrientidBrn === '307') {
       ingredientInfo.sodium = nutrientReportBrn[j].value
-    } else if (nutrientid === 205) {
-      // console.log(nutrientReport[i].value)
+    } else if (nutrientidBrn === '205') {
       ingredientInfo.carbs = nutrientReportBrn[j].value
-    } else if (nutrientid === 291) {
-      // console.log(nutrientReport[i].value)
+    } else if (nutrientidBrn === '291') {
       ingredientInfo.fiber = nutrientReportBrn[j].value
-    } else if (nutrientid === 269) {
-      // console.log(nutrientReport[i].value)
+    } else if (nutrientidBrn === '269') {
       ingredientInfo.sugar = nutrientReportBrn[j].value
-    } else if (nutrientid === 203) {
-      // console.log(nutrientReport[i].value)
+    } else if (nutrientidBrn === '203') {
       ingredientInfo.protein = nutrientReportBrn[j].value
-    } else if (nutrientid === 262) {
-      // console.log(nutrientReport[i].value)
+    } else if (nutrientidBrn === '262') {
       ingredientInfo.caffeine = 'No caffeine value available, sorry!'
     }
   }
@@ -236,13 +223,13 @@ const searchItems = _ => {
     .then(r => r.json())
     .then(r => {
       if (r.errors) {
-        document.querySelector('#invalidFood').style.display = 'inline'
+        document.querySelector('#invalidFood').style.display = 'block'
         document.querySelector('#foodOptions').style.display = 'none'
         document.querySelector('#ingredients').style.display = 'none'
       } else {
         document.querySelector('#invalidFood').style.display = 'none'
-        document.querySelector('#foodOptions').style.display = 'inline'
-        document.querySelector('#ingredients').style.display = 'inline'
+        document.querySelector('#foodOptions').style.display = 'block'
+        document.querySelector('#ingredients').style.display = 'block'
         totalItems = r.list.total
         for (let i = offset; i < offset + itemsToDisplay; i++) {
           if ((totalItems - offset) < itemsToDisplay) {
