@@ -3,15 +3,16 @@ li {
 }
 
 /* change to make hamburger bar clickable*/
-
-.sidenav-overlay {
+.sidenav-overlay{
     z-index: 800 !important;
 }
+
 
 .homepage-link {
     width: 310px;
     margin-left: 15%
 }
+
 #btnItem {
     float: left;
 }
@@ -34,6 +35,7 @@ li {
 .collum9, .collum10 { 
     border: 2px solid teal;
     width: 100%;
+
     height: 80px;
 }
 
@@ -52,6 +54,7 @@ li {
     line-height: 25px;
 
 }
+
 
 .recipeBIMG {
     background-image:url('./image/recipe5.jpg');
@@ -73,6 +76,7 @@ li {
     background: #e2dbbd;
     padding:0% 2% 1% 3%;
  }
+
 
 #foodOptions {
     font-family: 'Kurale', serif;
@@ -108,20 +112,20 @@ li {
 #nutritionInfoTable {
     font-family: 'Averia Libre';
     border: 1px solid black;
-    background-color: lightsteelblue;
+    background-color: lightsteelblue; 
     padding: 10px 0 0 10px;
 }
 
 #nutritionInfoTable h5 {
     font-family: 'Kurale', serif;
     border: 1px solid black;
-    background-color: lightskyblue;
+    background-color:lightskyblue;
     font-size: 12pt;
-    margin: -9px 0 0 -10px;
+    margin:-9px 0 0 -10px;
     height: 50px;
     text-align: center;
     padding-top: 9px;
-    font-size: 13pt;
+    font-size: 13pt; 
     font-weight: bold;
 }
 
@@ -130,6 +134,7 @@ ul li {
 }
 
 #backgroundImg1 {
+
     background-image: url('../Css/image/item1.jpg');
     height: 250px;
     background-repeat: no-repeat;
@@ -149,10 +154,12 @@ ul li {
     padding: 2% 2% 0% 2%;
     font-weight: bold;
     line-height: 23px;
+
 }
 
 #searchItem {
     background-color:#c7bbbb;
+
     padding-left: 3%;
 }
 
@@ -169,11 +176,10 @@ body {
 span {
     color: #131212;
 }
-
 span:hover {
-    color: #26daa4;
+    color:#26daa4;
 }
-
 #blankSearch, #uncheckedBox {
+
     color: #ff0000;
 }
