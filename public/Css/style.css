@@ -103,7 +103,6 @@ li {
     border: 1px solid teal;
     font-family: 'Averia Libre', cursive;
     background-color:wheat;
-   margin: 2%;
    align-items: center;
     height: 110px;
     padding: 10px;
@@ -182,4 +181,7 @@ span:hover {
 #blankSearch, #uncheckedBox {
 
     color: #ff0000;
+}
+#search{
+    margin-left: 30%
 }
