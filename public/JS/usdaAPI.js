@@ -25,16 +25,17 @@ document.addEventListener('click', e => {
     searchItems()
   } else if (e.target.id === 'caffeineBtn') {
     document.querySelector('#caffeineLI').style.display = 'table-cell'
-    document.querySelector('#caffeineBtn').style.display = 'none'
-    document.querySelector('#noCaffeineNeeded').style.display = 'inline'
+    document.querySelector('#caffeineBtn').style.visibility = 'hidden'
+    document.querySelector('#noCaffeineNeeded').style.visibility = 'visible'
   } else if (e.target.id === 'noCaffeineNeeded') {
     document.querySelector('#caffeineLI').style.display = 'none'
-    document.querySelector('#noCaffeineNeeded').style.display = 'none'
-    document.querySelector('#caffeineBtn').style.display = 'inline'
+    document.querySelector('#noCaffeineNeeded').style.visibility = 'hidden'
+    document.querySelector('#caffeineBtn').style.visibility = 'visible'
   }
 
   if (offset <= 0) {
     document.querySelector('#prevIngredientsBtn').style.display = 'none'
+    document.querySelector('#nextIngredientsBtn').style.display = 'none'
     offset = 0
   }
 })
@@ -47,7 +48,6 @@ document.querySelector('#searchBtn').addEventListener('click', e => {
     document.querySelector('#blankSearch').style.display = 'inline'
     document.querySelector('#uncheckedBox').style.visibility = 'hidden'
   } else {
-    document.querySelector('#nutritionFacts').style.display = 'none'
     offset = 0
     ingredientInfo = {}
     searchItem = document.querySelector('#searchItem').value
@@ -80,7 +80,7 @@ const printIngredientInfo = _ => {
   document.querySelector('#nutritionFacts').style.display = 'inline'
   document.querySelector('#nutritionFacts').innerHTML = ''
   document.querySelector('#backBtn').style.display = 'inline'
-  document.querySelector('#caffeineBtn').style.display = 'inline'
+  document.querySelector('#caffeineBtn').style.visibility = 'visible'
 
   let nutritionInfoTable = document.createElement('div')
   nutritionInfoTable.id = 'nutritionInfoTable'
@@ -160,7 +160,9 @@ const nutritionTable = r => {
 const ingredientNutrients = NDBno => {
   document.querySelector('#ingredients').innerHTML = ''
   document.querySelector('#foodOptions').style.display = 'none'
-  document.querySelector('#backBtn').style.display = 'none'
+  document.querySelector('#nextIngredientsBtn').style.display = 'none'
+  document.querySelector('#prevIngredientsBtn').style.display = 'none'
+
 
   fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}&measureby=m`)
     .then(r => r.json())
@@ -189,6 +191,7 @@ const searchItems = _ => {
       for (let i = offset; i < offset + itemsToDisplay; i++) {
         if ((totalItems - offset) < itemsToDisplay) {
           document.querySelector('#nextIngredientsBtn').style.display = 'none'
+          document.querySelector('#prevIngredientsBtn').style.display = 'none'
         }
         if (i === totalItems) {
           break

@@ -27,11 +27,11 @@
 }
 
 #caffeineBtn {
-  display: none;
+  visibility: hidden;
 }
 
 #noCaffeineNeeded {
-  display: none;
+  visibility: hidden;
 }
 
 #backBtn {
