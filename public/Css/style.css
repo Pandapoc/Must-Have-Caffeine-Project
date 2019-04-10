@@ -8,53 +8,34 @@ li {
     z-index: 800 !important;
 }
 
-<<<<<<< HEAD:Css/style.css
-/*index page*/
-=======
->>>>>>> 77a13148d4ca46dd15dabea1e75614ba0bd79514:public/Css/style.css
 .homepage-link {
     width: 310px;
     margin-left: 15%
 }
-<<<<<<< HEAD:Css/style.css
 #btnItem {
     float: left;
 }
 
 #btnRecipe {
     float: right;
-=======
-
-.btnRecipe {
-    margin: 2% 0 0 15%;
 }
 
-.btnItem {
-    margin: 2% 5% 0 7%;
->>>>>>> 77a13148d4ca46dd15dabea1e75614ba0bd79514:public/Css/style.css
-}
-
-/* .rowContainer {
+.rowContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     width: 70%;
     margin: 5% 15% 0 15%;
     background-color: lightblue;
-} */
+}
 
 .collum1, .collum2, .collum3, .collum4, 
 .collum5, .collum6, .collum7, .collum8, 
 .collum9, .collum10 { 
     border: 2px solid teal;
     width: 100%;
-<<<<<<< HEAD:Css/style.css
     height: 80px;
 }
-=======
-    height: 50px;
-} */
->>>>>>> 77a13148d4ca46dd15dabea1e75614ba0bd79514:public/Css/style.css
 
 .carousel {
     height: 200px;
@@ -72,19 +53,26 @@ li {
 
 }
 
-<<<<<<< HEAD:Css/style.css
-/*item page*/
+.recipeBIMG {
+    background-image:url('./image/recipe5.jpg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: auto center;
+ }
 
-.itemAlign {
-=======
-/* .align-center {
->>>>>>> 77a13148d4ca46dd15dabea1e75614ba0bd79514:public/Css/style.css
-    font-family: 'Averia Libre';
-    text-align: center;
-    border: 1px solid steelblue;
-    background-color: lightsteelblue;
-    color: black;
-} */
+ #recipeLink {
+    margin: 5% 15% 0 15%;
+    background-color: lightgray;
+    padding: 5%
+ 
+ }
+ .foodRecipe1 {
+    margin: 5% 15% 0 15%;
+    border: 2px solid teal;
+    background: #e2dbbd;
+    padding:0% 2% 1% 3%;
+ }
 
 #foodOptions {
     font-family: 'Kurale', serif;
@@ -142,7 +130,6 @@ ul li {
 }
 
 #backgroundImg1 {
-<<<<<<< HEAD:Css/style.css
     background-image: url('../Css/image/item1.jpg');
     height: 250px;
     background-repeat: no-repeat;
@@ -167,17 +154,6 @@ ul li {
 #searchItem {
     background-color:#c7bbbb;
     padding-left: 3%;
-=======
-    background-image: url('../Css/image/itempage1.jpg');
-    height: 150px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-#searchItem {
-    background-color: #c7bbbb;
->>>>>>> 77a13148d4ca46dd15dabea1e75614ba0bd79514:public/Css/style.css
 }
 
 #searchBtn {
@@ -198,48 +174,6 @@ span:hover {
     color: #26daa4;
 }
 
-<<<<<<< HEAD:Css/style.css
-
-/*recipe page*/
-
-.recipeBIMG {
-    background-image:url('./image/recipe5.jpg');
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: auto center;
-}
-
-#recipeLink {
-    margin: 5% 15% 0 15%;
-    background-color: lightgray;
-    padding: 5%
-
-}
-
-.foodRecipe1 {
-    margin: 5% 15% 0 15%;
-    border: 2px solid teal;
-    background: #e2dbbd;
-    padding:0% 2% 1% 3%;
-
-}
-#search {
-    margin: 1% 0 0 15%;
-    border: none;
-}
-
-.Recipes {
-    font-family: 'Pattaya', sans-serif;
-    font-size: 14pt;
-
-}
-
-
-
-
-=======
 #blankSearch, #uncheckedBox {
     color: #ff0000;
 }
->>>>>>> 77a13148d4ca46dd15dabea1e75614ba0bd79514:public/Css/style.css
