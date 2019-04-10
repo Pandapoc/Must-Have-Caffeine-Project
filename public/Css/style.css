@@ -87,7 +87,8 @@ li {
 }
 
 #ingredients li {
-    margin-left: 25px;
+    margin-left: 2.5%;
+    background-color: aliceblue;
 }
 
 .ingredientOption:hover {
