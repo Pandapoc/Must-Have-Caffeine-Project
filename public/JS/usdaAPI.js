@@ -163,7 +163,6 @@ const ingredientNutrients = NDBno => {
   document.querySelector('#nextIngredientsBtn').style.display = 'none'
   document.querySelector('#prevIngredientsBtn').style.display = 'none'
 
-
   fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}&measureby=m`)
     .then(r => r.json())
     .then(r => {
@@ -178,35 +177,44 @@ const ingredientNutrients = NDBno => {
 }
 
 const searchItems = _ => {
-  document.querySelector('#foodOptions').style.display = 'inline'
-  document.querySelector('#ingredients').style.display = 'inline'
   document.querySelector('#ingredients').innerHTML = ''
   document.querySelector('#nutritionFacts').style.display = 'none'
   document.querySelector('#backBtn').style.display = 'none'
+  document.querySelector('#caffeineBtn').style.visibility = 'hidden'
+  document.querySelector('#noCaffeineNeeded').style.visibility = 'hidden'
 
   fetch(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchItem}&sort=r&ds=${ingredientInfo.database}&max=1000&offset=0&api_key=${apiUSDA}`)
     .then(r => r.json())
     .then(r => {
-      totalItems = r.list.total
-      for (let i = offset; i < offset + itemsToDisplay; i++) {
-        if ((totalItems - offset) < itemsToDisplay) {
-          document.querySelector('#nextIngredientsBtn').style.display = 'none'
-          document.querySelector('#prevIngredientsBtn').style.display = 'none'
-        }
-        if (i === totalItems) {
-          break
-        }
-        NDBno = r.list.item[i].ndbno
-        let ingredientName = r.list.item[i].name
-        let ingredient = document.createElement('li')
-        ingredient.className = 'ingredientOption'
-        ingredient.dataset.ndbno = NDBno
-        ingredient.innerHTML =
-          `
+      if (r.errors) {
+        document.querySelector('#invalidFood').style.display = 'inline'
+        document.querySelector('#foodOptions').style.display = 'none'
+        document.querySelector('#ingredients').style.display = 'none'
+      } else {
+        document.querySelector('#invalidFood').style.display = 'none'
+        document.querySelector('#foodOptions').style.display = 'inline'
+        document.querySelector('#ingredients').style.display = 'inline'
+        totalItems = r.list.total
+        for (let i = offset; i < offset + itemsToDisplay; i++) {
+          if ((totalItems - offset) < itemsToDisplay) {
+            document.querySelector('#nextIngredientsBtn').style.display = 'none'
+            document.querySelector('#prevIngredientsBtn').style.display = 'none'
+          }
+          if (i === totalItems) {
+            break
+          }
+          NDBno = r.list.item[i].ndbno
+          let ingredientName = r.list.item[i].name
+          let ingredient = document.createElement('li')
+          ingredient.className = 'ingredientOption'
+          ingredient.dataset.ndbno = NDBno
+          ingredient.innerHTML =
+            `
       ${ingredientName}
       `
-        document.querySelector('#ingredients').append(ingredient)
-        document.querySelector('#nextIngredientsBtn').style.display = 'inline'
+          document.querySelector('#ingredients').append(ingredient)
+          document.querySelector('#nextIngredientsBtn').style.display = 'inline'
+        }
       }
     })
     .catch(e => console.log(e))
