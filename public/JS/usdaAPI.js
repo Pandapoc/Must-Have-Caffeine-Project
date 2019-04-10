@@ -125,7 +125,7 @@ const printIngredientInfo = _ => {
   document.querySelector('#nutritionFacts').append(nutritionInfoTable)
 }
 
-const nutritionTable = r => {
+const nutritionTableStd = r => {
   let nutrientReport = r.report.food.nutrients
 
   for (let i = 0; i < nutrientReport.length; i++) {
@@ -157,6 +157,51 @@ const nutritionTable = r => {
   printIngredientInfo()
 }
 
+const nutritionTableBrn = r => {
+  let nutrientReportBrn = r.report.food.nutrients
+  console.log(nutrientReportBrn)
+
+  for (let j = 0; j < nutrientReportBrn.length; j++) {
+    let nutrientid = nutrientReportBrn[j].nutrient_id
+    // console.log(nutrientid)
+    if (nutrientid === 208) {
+      ingredientInfo.calories = nutrientReportBrn[j].value
+      // console.log(nutrientReport[i].value)
+    } else if (nutrientid === 204) {
+      // console.log(nutrientReport[i].value)
+      ingredientInfo.totalFat = nutrientReportBrn[j].value
+    } else if (nutrientid === 606) {
+      // console.log(nutrientReport[i].value)
+      ingredientInfo.satFat = nutrientReportBrn[j].value
+    } else if (nutrientid === 605) {
+      // console.log(nutrientReport[i].value)
+      ingredientInfo.transFat = nutrientReportBrn[j].value
+    } else if (nutrientid === 601) {
+      // console.log(nutrientReport[i].value)
+      ingredientInfo.cholesterol = nutrientReportBrn[j].value
+    } else if (nutrientid === 307) {
+      // console.log(nutrientReport[i].value)
+      ingredientInfo.sodium = nutrientReportBrn[j].value
+    } else if (nutrientid === 205) {
+      // console.log(nutrientReport[i].value)
+      ingredientInfo.carbs = nutrientReportBrn[j].value
+    } else if (nutrientid === 291) {
+      // console.log(nutrientReport[i].value)
+      ingredientInfo.fiber = nutrientReportBrn[j].value
+    } else if (nutrientid === 269) {
+      // console.log(nutrientReport[i].value)
+      ingredientInfo.sugar = nutrientReportBrn[j].value
+    } else if (nutrientid === 203) {
+      // console.log(nutrientReport[i].value)
+      ingredientInfo.protein = nutrientReportBrn[j].value
+    } else if (nutrientid === 262) {
+      // console.log(nutrientReport[i].value)
+      ingredientInfo.caffeine = 'No caffeine value available, sorry!'
+    }
+  }
+  printIngredientInfo()
+}
+
 const ingredientNutrients = NDBno => {
   document.querySelector('#ingredients').innerHTML = ''
   document.querySelector('#foodOptions').style.display = 'none'
@@ -166,12 +211,16 @@ const ingredientNutrients = NDBno => {
   fetch(`https://api.nal.usda.gov/ndb/reports/?ndbno=${NDBno}&type=f&format=json&api_key=${apiUSDA}&measureby=m`)
     .then(r => r.json())
     .then(r => {
-      if (r.report.food.cn === '') {
-        ingredientInfo.name = r.report.food.name
-      } else {
-        ingredientInfo.name = r.report.food.cn
+      if (ingredientInfo.database === 'Standard Reference') {
+        if (r.report.food.cn === '') {
+          ingredientInfo.name = r.report.food.name
+        } else {
+          ingredientInfo.name = r.report.food.cn
+        }
+        nutritionTableStd(r)
+      } else if (ingredientInfo.database === 'Branded Food Products') {
+        nutritionTableBrn(r)
       }
-      nutritionTable(r)
     })
     .catch(e => console.log(e))
 }
