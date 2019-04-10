@@ -218,5 +218,4 @@ const searchItems = _ => {
       }
     })
     .catch(e => console.log(e))
-
 }
