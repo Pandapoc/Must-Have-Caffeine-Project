@@ -12,7 +12,7 @@
     <title>Recipes</title>
 </head>
 
-<body>
+<body class='recipeBIMG'>
 
     <!--New Navbar!!!!!!!!!!!!!!-->
     <div class="navbar-fixed">
@@ -38,11 +38,14 @@
         </ul>
     </div>
 
-      <form>
-            <label for="Recipes">Food Recipes:</label>
-            <input type="text" name="Recipes" id="Recipes">
-            <button id='search'>Search</button>
-
+    <form class="recipePage">
+        <div class="foodRecipe1">
+          <label for="Recipes" class="Recipes">Food Recipes:</label>
+          <input type="text" name="Recipes" id="Recipes"></div>
+          <button id='search'>
+              <a class="waves-effect waves-light btn-large">
+                  <i class="material-icons left">search</i>Search</a>
+          </button>
 
     </form>
     <!-- search Result -->
