@@ -62,7 +62,7 @@ const getYt = (title, i) => {
                 vidId.push(r.items[2].id.videoId)
                 let vidElem = document.createElement('div')
                 vidElem.innerHTML = `
-                    <iframe width="320" height="160" src="https://www.youtube.com/embed/${vidId[i]}" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="90%" height="160" src="https://www.youtube.com/embed/${vidId[i]}" frameborder="0" allowfullscreen></iframe>
                     `
                 document.querySelector(`#vid${i}`).append(vidElem)
 
