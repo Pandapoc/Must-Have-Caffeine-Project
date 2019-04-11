@@ -1,6 +1,7 @@
 li {
     opacity: 1 !important;
 }
+<<<<<<< HEAD
  /* change to make hamburger bar clickable*/
  .sidenav-overlay{
     z-index: 800 !important;
@@ -12,6 +13,15 @@ ul li {
     padding: 15px 0 0 15px;
 }
 /* Index Page */
+=======
+
+/* change to make hamburger bar clickable*/
+.sidenav-overlay{
+    z-index: 800 !important;
+}
+
+
+>>>>>>> db21baa07d95ed86e2daad007829875c5091148e
 .homepage-link {
     margin: 0 5% 0 5%;
 }
@@ -21,12 +31,39 @@ ul li {
     height: 80px;
     margin: 10% 0 0 0;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> db21baa07d95ed86e2daad007829875c5091148e
 #btnItem {
     float: left;
 }
 #btnRecipe {
     float: right;
+<<<<<<< HEAD
 }
+=======
+}
+
+.rowContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    width: 70%;
+    margin: 5% 15% 0 15%;
+    background-color: lightblue;
+}
+
+.collum1, .collum2, .collum3, .collum4, 
+.collum5, .collum6, .collum7, .collum8, 
+.collum9, .collum10 { 
+    border: 2px solid teal;
+    width: 100%;
+
+    height: 80px;
+}
+
+>>>>>>> db21baa07d95ed86e2daad007829875c5091148e
 .carousel {
     height: 200px;
 }
@@ -38,6 +75,7 @@ ul li {
     background-color: #c7bbbb;
     border: 1px solid teal;
     line-height: 25px;
+<<<<<<< HEAD
     margin: 0 5% 0 5%;
     font-size: 15pt;
     padding:1%;
@@ -45,6 +83,35 @@ ul li {
 }
 /* Item Page */
 #foodOptions h5{
+=======
+
+}
+
+
+.recipeBIMG {
+    background-image:url('./image/recipe5.jpg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: auto center;
+ }
+
+ #recipeLink {
+    margin: 5% 15% 0 15%;
+    background-color: lightgray;
+    padding: 5%
+ 
+ }
+ .foodRecipe1 {
+    margin: 5% 15% 0 15%;
+    border: 2px solid teal;
+    background: #e2dbbd;
+    padding:0% 2% 1% 3%;
+ }
+
+
+#foodOptions {
+>>>>>>> db21baa07d95ed86e2daad007829875c5091148e
     font-family: 'Kurale', serif;
     border: 2px solid teal;
     background-color: lightsteelblue;
@@ -54,9 +121,21 @@ ul li {
     text-align: center; 
     font-weight: bold;
 }
+<<<<<<< HEAD
 #ingredients {
     border: 2px solid teal;
     margin-top: -9%; 
+=======
+
+#ingredients li {
+    margin-left: 2.5%;
+    background-color: aliceblue;
+}
+
+.ingredientOption:hover {
+    color: brown;
+
+>>>>>>> db21baa07d95ed86e2daad007829875c5091148e
 }
 #ingredients li {
     padding-left: 18px;
@@ -67,38 +146,78 @@ ul li {
     border: 2.5px solid teal;
     font-family: 'Averia Libre', cursive;
     background-color:wheat;
+<<<<<<< HEAD
     padding: 5px;
     width: 80%;
     margin:15% 0 0 10%;
+=======
+   align-items: center;
+    height: 110px;
+    padding: 10px;
+>>>>>>> db21baa07d95ed86e2daad007829875c5091148e
 }
 #nutritionInfoTable {
     font-family: 'Averia Libre';
     border: 1px solid black;
-    background-color: lightsteelblue;
+    background-color: lightsteelblue; 
     padding: 10px 0 0 10px;
 }
 #nutritionInfoTable h5 {
     font-family: 'Kurale', serif;
     border: 1px solid black;
-    background-color: lightskyblue;
+    background-color:lightskyblue;
     font-size: 12pt;
+<<<<<<< HEAD
     margin: -10px 0 0 -10px;
+=======
+    margin:-9px 0 0 -10px;
+    height: 50px;
+>>>>>>> db21baa07d95ed86e2daad007829875c5091148e
     text-align: center;
     padding-top: 9px;
-    font-size: 13pt;
+    font-size: 13pt; 
     font-weight: bold;
 }
 #backgroundImg1 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> db21baa07d95ed86e2daad007829875c5091148e
     background-image: url('../Css/image/item1.jpg');
     height: 250px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: auto center;
 }
+<<<<<<< HEAD
 #searchItem {
     background-color:#c7bbbb;
     padding-left: 3%;
 }
+=======
+
+.itemDivWrapper {
+    margin: 0% 12% 0 12%;
+    border: 1px solid teal;
+    background-color:lightgray;
+}
+
+.itemDivWrapper h6 {
+    font-size: 15pt;
+    font-family: 'Averia Libre', cursive;
+    padding: 2% 2% 0% 2%;
+    font-weight: bold;
+    line-height: 23px;
+
+}
+
+#searchItem {
+    background-color:#c7bbbb;
+
+    padding-left: 3%;
+}
+
+>>>>>>> db21baa07d95ed86e2daad007829875c5091148e
 #searchBtn {
     border: none;
     padding:0;
@@ -106,6 +225,7 @@ ul li {
 span {
     color: #131212;
 }
+<<<<<<< HEAD
 #blankSearch, #uncheckedBox {
     color: #ff0000;
 }
@@ -133,3 +253,15 @@ span {
     border: none;
     padding: 0;
 }
+=======
+span:hover {
+    color:#26daa4;
+}
+#blankSearch, #uncheckedBox {
+
+    color: #ff0000;
+}
+#search{
+    margin-left: 30%
+}
+>>>>>>> db21baa07d95ed86e2daad007829875c5091148e
