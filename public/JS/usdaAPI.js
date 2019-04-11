@@ -151,7 +151,11 @@ const nutritionTableStd = r => {
     } else if (nutrientID === 203) {
       ingredientInfo.protein = nutrientReport[i].value
     } else if (nutrientID === 262) {
-      ingredientInfo.caffeine = `${nutrientReport[i].value} g`
+      if (nutrientReport[i].value === 0) {
+        ingredientInfo.caffeine = `No caffeine here, sorry!`
+      } else {
+        ingredientInfo.caffeine = `${nutrientReport[i].value} g`
+      }
     }
   }
   printIngredientInfo()
