@@ -89,34 +89,34 @@ const printIngredientInfo = _ => {
     <table>
     <caption>${ingredientInfo.name} Nutrients</caption>
     <tr>
-    <td>Calories: ${ingredientInfo.calories}</td>
+    <td>Calories: ${ingredientInfo.calories} kcal</td>
     </tr>
     <tr>
-    <td>Total fat: ${ingredientInfo.totalFat}</td>
+    <td>Total fat: ${ingredientInfo.totalFat} g</td>
     </tr>
     <tr>
-    <td>Saturated fat: ${ingredientInfo.satFat}</td>
+    <td>Saturated fat: ${ingredientInfo.satFat} g</td>
     </tr>
     <tr>
-    <td>Trans fat: ${ingredientInfo.transFat}</td>
+    <td>Trans fat: ${ingredientInfo.transFat} g</td>
     </tr>
     <tr>
-    <td>Cholesterol: ${ingredientInfo.cholesterol}</td>
+    <td>Cholesterol: ${ingredientInfo.cholesterol} mg</td>
     </tr>
     <tr>
-    <td>Sodium: ${ingredientInfo.sodium}</td>
+    <td>Sodium: ${ingredientInfo.sodium} mg</td>
     </tr>
     <tr>
-    <td>Carbohydrates: ${ingredientInfo.carbs}</td>
+    <td>Carbohydrates: ${ingredientInfo.carbs} g</td>
     </tr>
     <tr>
-    <td>Fiber: ${ingredientInfo.fiber}</td>
+    <td>Fiber: ${ingredientInfo.fiber} g</td>
     </tr>
     <tr>
-    <td>Sugar: ${ingredientInfo.sugar}</td>
+    <td>Sugar: ${ingredientInfo.sugar} g</td>
     </tr>
     <tr>
-    <td>Protein: ${ingredientInfo.protein}</td>
+    <td>Protein: ${ingredientInfo.protein} g</td>
     </tr>
     <tr>
     <td id="caffeineLI">Caffeine: ${ingredientInfo.caffeine}</td>
@@ -151,7 +151,7 @@ const nutritionTableStd = r => {
     } else if (nutrientID === 203) {
       ingredientInfo.protein = nutrientReport[i].value
     } else if (nutrientID === 262) {
-      ingredientInfo.caffeine = nutrientReport[i].value
+      ingredientInfo.caffeine = `${nutrientReport[i].value} g`
     }
   }
   printIngredientInfo()
@@ -182,10 +182,9 @@ const nutritionTableBrn = r => {
       ingredientInfo.sugar = nutrientReportBrn[j].value
     } else if (nutrientidBrn === '203') {
       ingredientInfo.protein = nutrientReportBrn[j].value
-    } else if (nutrientidBrn === '262') {
-      ingredientInfo.caffeine = 'No caffeine value available, sorry!'
     }
   }
+  ingredientInfo.caffeine = `No caffeine value available, sorry!`
   printIngredientInfo()
 }
 
