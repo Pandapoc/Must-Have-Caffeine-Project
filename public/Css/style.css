@@ -1,8 +1,6 @@
 li {
     opacity: 1 !important;
 }
-<<<<<<< HEAD
- /* change to make hamburger bar clickable*/
  .sidenav-overlay{
     z-index: 800 !important;
 }
@@ -12,16 +10,6 @@ body {
 ul li {
     padding: 15px 0 0 15px;
 }
-/* Index Page */
-=======
-
-/* change to make hamburger bar clickable*/
-.sidenav-overlay{
-    z-index: 800 !important;
-}
-
-
->>>>>>> db21baa07d95ed86e2daad007829875c5091148e
 .homepage-link {
     margin: 0 5% 0 5%;
 }
@@ -53,7 +41,6 @@ ul li {
     padding:1%;
     width: 90%;    
 }
-/* Item Page */
 #foodOptions h5{
     font-family: 'Kurale', serif;
     border: 2px solid teal;
@@ -84,18 +71,18 @@ ul li {
 #nutritionInfoTable {
     font-family: 'Averia Libre';
     border: 1px solid black;
-    background-color: lightsteelblue; 
+    background-color: lightsteelblue;
     padding: 10px 0 0 10px;
 }
 #nutritionInfoTable h5 {
     font-family: 'Kurale', serif;
     border: 1px solid black;
-    background-color:lightskyblue;
+    background-color: lightskyblue;
     font-size: 12pt;
     margin: -10px 0 0 -10px;
     text-align: center;
     padding-top: 9px;
-    font-size: 13pt; 
+    font-size: 13pt;
     font-weight: bold;
 }
 #backgroundImg1 {
@@ -138,8 +125,9 @@ span {
     background: #e2dbbd;
     padding:0% 2% 1% 3%;
 }
-#search {
-    margin:2% 0 0 15%;
-    border: none;
-    padding: 0;
+#search{
+    margin-left: 30%;
+}
+.homepage{
+    margin-left: 25%
 }
