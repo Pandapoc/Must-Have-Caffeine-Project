@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +7,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./Css/style.css">
-
     <title>Recipes</title>
 </head>
-
 <body class='recipeBIMG'>
-
-    <!--New Navbar!!!!!!!!!!!!!!-->
+<!--New Navbar!!!!!!!!!!!!!!-->
     <div class="navbar-fixed">
         <nav class="teal">
             <div class="container">
                 <div class="nav-wrapper">
                     <a href="#" class="brand-logo">Logo</a>
-                    <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                    <a href="#" data-target="mobile-nav" 
+                        class="sidenav-trigger">
                         <i class="material-icons">menu</i>
                     </a>
                     <ul class="right hide-on-med-and-down">
@@ -37,44 +34,24 @@
             <li><a href="./items.html">Items</a></li>
         </ul>
     </div>
-
+<!--Input Search Box -->
     <form class="recipePage">
         <div class="foodRecipe1">
-          <label for="Recipes" class="Recipes">Food Recipes:</label>
-          <input type="text" name="Recipes" id="Recipes"></div>
-          <button id='search'>
-              <a class="waves-effect waves-light btn-large">
-                  <i class="material-icons left">search</i>Search</a>
-          </button>
+            <label for="Recipes" class="Recipes">Food Recipes:</label>
+            <input type="text" name="Recipes" id="Recipes"></div>
+        <button class="waves-effect waves-light btn-large" id='search'>
+            <i class="material-icons left">search</i>search</a>
+        </button>
 
     </form>
-    <!-- search Result -->
+    <div class="Recipes" id="recipeLink"></div>
 
-
-    <div id="recipeLink"></div>
-
-
-
-
-
-
-
-   -<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./JS/nick.js"></script>
-
-
     <script>
-        // sidenav
         const sideNav = document.querySelector('.sidenav');
         M.Sidenav.init(sideNav, {});
-</script>
-
- 
-
-
-
-
+    </script>
 </body>
-
 </html>
