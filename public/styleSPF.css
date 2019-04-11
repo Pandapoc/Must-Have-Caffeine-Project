@@ -28,10 +28,14 @@
 
 #caffeineBtn {
   visibility: hidden;
+  line-height: 30px;
+  min-height: 65px;
 }
 
 #noCaffeineNeeded {
   visibility: hidden;
+  line-height: 30px;
+  min-height: 65px;
 }
 
 #backBtn {
