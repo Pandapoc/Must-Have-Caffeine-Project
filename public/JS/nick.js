@@ -23,7 +23,6 @@ const getRecipe = () => {
     fetch(`https://www.food2fork.com/api/search?key=${apiRecipe}&q=${recipeSearch}&page=2`)
         .then(r => r.json())
         .then(r => {
-            console.log(r)
             for (let i = 0; i <= 9; i++) {
                 title.push(r.recipes[i].title)
                 url.push(r.recipes[i].f2f_url)
