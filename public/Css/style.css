@@ -96,17 +96,12 @@ ul li {
     background-color:#c7bbbb;
     padding-left: 3%;
 }
-#searchBtn {
-    border: none;
-    padding:0;
-}
 span {
     color: #131212;
 }
 #blankSearch, #uncheckedBox {
     color: #ff0000;
 }
-/* Recipe Page */
 .recipeBIMG {
     background-image:url('./image/recipe5.jpg');
     width: 100%;
@@ -126,7 +121,8 @@ span {
     padding:0% 2% 1% 3%;
 }
 #search{
-    margin-left: 30%;
+    margin: 2% 0% 0% 15%;
+    
 }
 .homepage{
     margin-left: 25%
